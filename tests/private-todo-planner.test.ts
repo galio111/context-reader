@@ -1,7 +1,8 @@
 import {strict as assert} from "node:assert";
 import {test} from "node:test";
-import {calendarDays,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
+import {calendarDays,calendarItems,eventsOnDay,firstEventDate,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
 
+import {isCalendarEvent,type CalendarEvent} from "../lib/privateTodoState";
 const day="2026-04-10";
 const base:Task={id:"one",title:"整理一页草稿",category:"",date:"2026-04-13",time:"",lead:3,daily:false,missed:"skip",priority:"",created:day};
 function workspace(tasks:Task[]):TodoData {return {version:1,categories:[],tasks,history:[],settings:{learnDefaults:false,defaultMissed:"skip",emailEnabled:false,emailAddress:"",remindMinutes:60,allDayTime:"18:00"}}}
@@ -59,6 +60,22 @@ test("renaming updates task and history labels in place, and rejects a competing
   assert.deepEqual(next.history,[{...state.history[0],category:"课程"}]);
   assert.throws(()=>updateCategories(state,[],[],[{from:"学习",to:"生活"}]));
   assert.throws(()=>updateCategories(next,[],[],[{from:"学习",to:"科研"}]));
+});
+test("the calendar drops completed instances and restores them without removing fixed events",()=>{
+  const once={...base,date:day,priority:"high" as const};
+  const event:CalendarEvent={id:"one",title:"组会",frequency:"weekly",weekdays:[5],monthDay:10,startDate:day,endDate:"",startTime:"09:00",endTime:"10:00",color:"#234567"};
+  assert.deepEqual(calendarItems([once],[event],day,new Set([occurrenceKey(once,day)])).map(i=>i.key),["event:one"]);
+  assert.deepEqual(calendarItems([once],[event],day,new Set()).map(i=>i.key),["task:one","event:one"]);
+});
+test("weekly term bounds, multiple weekdays, monthly short months and leap years",()=>{
+  const event:CalendarEvent={id:"course",title:"课程",frequency:"weekly",weekdays:[1,3],monthDay:31,startDate:"2026-11-24",endDate:"2026-11-30",startTime:"09:00",endTime:"10:00",color:"#234567"};
+  assert.ok(isCalendarEvent(event));assert.ok(!isCalendarEvent({...event,weekdays:[]}));assert.ok(!isCalendarEvent({...event,endTime:"08:59"}));
+  assert.equal(firstEventDate(event),"2026-11-25");
+  for(const [date,expected] of [["2026-11-23",0],["2026-11-25",1],["2026-11-30",1],["2026-12-02",0]] as const)assert.equal(eventsOnDay([event],date).length,expected);
+  const monthly={...event,frequency:"monthly" as const,startDate:"2028-02-01",endDate:""};
+  assert.equal(firstEventDate(monthly),"2028-03-31");
+  assert.equal(firstEventDate({...monthly,monthDay:29}),"2028-02-29");
+  assert.equal(firstEventDate({...monthly,endDate:"2028-03-25"}),"");
 });
 test("24 hour view spans midnight and excludes untimed backlog",()=>{
   const s=workspace([{...base,id:"none",date:""},{...base,id:"past",date:day,time:"09:00"},

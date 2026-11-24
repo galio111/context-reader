@@ -1,7 +1,9 @@
 "use client";
 import {useCallback,useEffect,useMemo,useRef,useState,type CSSProperties} from "react";
 import Link from "next/link";
-import {calendarDays,defaultUrgentColor,urgencyLabel,updateCategories,dateLabel,dayEntries,isoDay,learnedCategory,nextMonth,occurrenceKey,plusDays,priorityLabels,taskGroups,timing,type Completed,type Entry,type Settings,type Task,type View} from "./planner-model";
+import {calendarDays,defaultUrgentColor,urgencyLabel,updateCategories,dateLabel,calendarItems,firstEventDate,eventsOnDay,eventTime,isoDay,learnedCategory,nextMonth,occurrenceKey,plusDays,priorityLabels,taskGroups,timing,type Completed,type Entry,type Settings,type Task,type View} from "./planner-model";
+import {CalendarEventEditor,weekdayName} from "./CalendarEventEditor";
+import type {CalendarEvent} from "@/lib/privateTodoState";
 import {InlineEditor,SettingsEditor} from "./TodoEditors";
 import {useTodoStore} from "./useTodoStore";
 import "./workspace.css";
@@ -52,6 +54,7 @@ export default function PrivateTodoWorkspace() {
   const categoryFilter=state?.categories.includes(chosenCategory) ? chosenCategory : "";
   useEffect(()=>{if(new URLSearchParams(location.search).get("view")==="all") setView("all")},[]);
   const [hoverDay,setHoverDay]=useState(""),[editing,setEditing]=useState<{key:string;original:Task}|null>(null);
+  const [eventEditor,setEventEditor]=useState<{day:string;original:CalendarEvent|null}|null>(null);
   const [settingsBase,setSettingsBase]=useState<Settings|null>(null),[notice,setNotice]=useState<Notice|null>(null);
   const [settling,setSettling]=useState<string[]>([]),[captureReady,setCaptureReady]=useState(false),[captureIssue,setCaptureIssue]=useState("");
   const agenda=useRef<HTMLElement>(null), input=useRef<HTMLTextAreaElement>(null);
@@ -100,13 +103,26 @@ export default function PrivateTodoWorkspace() {
   const nextDue=useMemo(()=>(state?.tasks||[]).filter(t=>!t.daily&&t.date>today&&plusDays(t.date,-t.lead)>today&&!doneKeys.has(occurrenceKey(t,t.date))).sort((a,b)=>a.date.localeCompare(b.date)||(a.time||"24:00").localeCompare(b.time||"24:00"))[0],[state?.tasks,today,doneKeys]);
   const undated=state?.tasks.filter(t=>!t.daily&&!t.date&&!doneKeys.has(occurrenceKey(t,""))).length||0;
   const cells=useMemo(()=>calendarDays(month),[month]);
-  const contents=useMemo(()=>new Map(cells.map(day=>{
-    const high=(e:Entry)=>Number(e.task.priority==="high" && !doneKeys.has(occurrenceKey(e.task,day)));
-    const entries=dayEntries(state?.tasks||[],day).sort((a,b)=>high(b)-high(a)||(a.task.time||"").localeCompare(b.task.time||""));
-    return [day,entries] as const;
-  })),[state?.tasks,cells,doneKeys]);
-  const monthHasHigh=[...contents.values()].some(rows=>rows.some(e=>e.task.priority==="high"&&!doneKeys.has(occurrenceKey(e.task,e.occ))));
-  function jump(day:string) {setSelected(day);setMonth(day.slice(0,7));setView("day");setEditing(null);if(window.innerWidth<950)agenda.current?.scrollIntoView({block:"start"})}
+  const contents=useMemo(()=>new Map(cells.map(day=>[day,calendarItems(state?.tasks||[],state?.events||[],day,doneKeys)])),[state?.tasks,state?.events,cells,doneKeys]);
+  const monthHasHigh=[...contents.values()].some(rows=>rows.some(item=>item.high));
+  const shownDay=view==="day" ? selected : today;
+  const shownEvents=view==="day" || view==="today" ? eventsOnDay(state?.events||[],shownDay) : [];
+  async function changeEvent(next:CalendarEvent|null) {
+    if(!eventEditor)return;
+    const original=eventEditor.original;
+    await mutate(s=>{
+      const events=s.events||[],id=original?.id || next?.id;
+      const existing=events.find(event=>event.id===id);
+      const equal=(a:CalendarEvent,b:CalendarEvent)=>Object.keys(a).every(key=>JSON.stringify(a[key as keyof CalendarEvent])===JSON.stringify(b[key as keyof CalendarEvent]));
+      if(existing && next && equal(existing,next))return s;
+      if(!existing && !next)return s;
+      if(original ? !existing || !equal(existing,original) : !!existing)throw Error("这组事件已在另一处修改，请重新打开。");
+      return {...s,events:next ? (original ? events.map(event=>event.id===id?next:event) : [...events,next]) : events.filter(event=>event.id!==id)};
+    });
+    if(next && !original){const first=firstEventDate(next);if(first)jump(first)}
+    setNotice({text:next?"固定事件已保存":"已删除整组固定事件"});
+  }
+  function jump(day:string) {setSelected(day);setHoverDay(day);setMonth(day.slice(0,7));setView("day");setEditing(null);if(window.innerWidth<950)agenda.current?.scrollIntoView({block:"start"})}
   const restore=useCallback(async(key:string)=>{
     try{await mutate(s=>({...s,history:s.history.filter(h=>h.key!==key)}));setNotice({text:"已恢复到待办清单"})}
     catch(e){setNotice({text:(e as Error).message})}
@@ -165,9 +181,12 @@ export default function PrivateTodoWorkspace() {
         <div className="td-heading"><h1>{view==="day"?dateLabel(selected)+"的待办":labels[view]}</h1>{view==="day" && <ScopedAdd key={selected} date={selected} ready={captureReady}/>}{view==="today"&&<span>{dateLabel(today)} · {"周"+"日一二三四五六"[new Date(today+"T12:00:00Z").getUTCDay()]}</span>}</div>
         {view==="all" && <label className="td-filter">分类<select value={categoryFilter} onChange={e=>{setCategoryFilter(e.target.value);setEditing(null)}}><option value="">所有分类</option>{state!.categories.map(c=><option key={c}>{c}</option>)}</select></label>}
         {view==="upcoming" && <p className="td-caption">接下来 24 小时内截止，全天事项按当天结束计算。</p>}
+        {!!shownEvents.length && <section className="td-group"><h2>固定事件</h2>{shownEvents.map(event=><div key={event.id} className="td-row td-event-row" style={{"--td-mark":event.color} as CSSProperties}>
+          <div><strong>{event.title}</strong><small>{eventTime(event)} · {event.frequency==="weekly"?"每周"+[1,2,3,4,5,6,0].filter(n=>event.weekdays.includes(n)).map(weekdayName).map(s=>s.slice(1)).join("、"):"每月 "+event.monthDay+" 日"}</small></div>
+          <button className="td-link" aria-label={"编辑固定事件「"+event.title+"」"} onClick={()=>setEventEditor({day:shownDay,original:event})}>编辑</button></div>)}</section>}
         {view==="history"?historyDates.size?[...historyDates].map(([day,records])=><section key={day} className="td-group"><h2>{day}</h2>{renderHistory(records)}</section>):<p className="td-empty">勾选完成的待办会按日期留在这里。</p>:
           groups.length?groups.map(group=><section key={group.category===undefined ? group.title : "category:"+group.category} className="td-group"><div className="td-group-head"><h2>{group.title}</h2>{group.category!==undefined && <ScopedAdd key={group.category} category={group.category} ready={captureReady}/>}</div>{group.rows.map(renderRow)}</section>):
-          <p className="td-empty">{view==="today"?"今天还没有要开工、到期或例行的待办。":view==="day"?"这一天没有待完成的事项。":"这个范围内没有待完成的事项。"}</p>}
+          shownEvents.length?null:<p className="td-empty">{view==="today"?"今天还没有要开工、到期或例行的待办。":view==="day"?"这一天没有待完成的事项。":"这个范围内没有待完成的事项。"}</p>}
         {view==="today" && <>
           {nextDue && <button className="td-next" onClick={()=>jump(nextDue.date)}><span>下一项截止 · {dateLabel(nextDue.date)}{nextDue.time&&" "+nextDue.time}</span><b>{nextDue.title}</b></button>}
           {!!undated && <button className="td-link td-undated" onClick={()=>{setCategoryFilter("");setView("all")}}>另有 {undated} 项未定日期，查看全部待办 ↗</button>}
@@ -175,25 +194,23 @@ export default function PrivateTodoWorkspace() {
         {view==="day" && <button className="td-link" onClick={()=>setView("today")}>返回今天</button>}
       </section>
       <section className="td-calendar" aria-label="月历"><div className="td-calendar-head"><h2>{month.slice(0,4)} 年 {Number(month.slice(5))} 月</h2>
-        <div><button aria-label="上个月" onClick={()=>{setMonth(nextMonth(month,-1));setHoverDay("")}}>‹</button><button onClick={()=>{setMonth(today.slice(0,7));setSelected(today);setView("today");setHoverDay("")}}>今</button><button aria-label="下个月" onClick={()=>{setMonth(nextMonth(month,1));setHoverDay("")}}>›</button></div></div>
+        <div><button className="td-event-add" aria-label="添加固定事件" onClick={()=>setEventEditor({original:null,day:view==="day"?selected:month===today.slice(0,7)?today:month+"-01"})}>＋ 固定事件</button><button aria-label="上个月" onClick={()=>{setMonth(nextMonth(month,-1));setHoverDay("")}}>‹</button><button onClick={()=>{setMonth(today.slice(0,7));setSelected(today);setView("today");setHoverDay("")}}>今</button><button aria-label="下个月" onClick={()=>{setMonth(nextMonth(month,1));setHoverDay("")}}>›</button></div></div>
         <div className="td-month">{[..."一二三四五六日"].map(d=><span className="td-week" key={d}>{d}</span>)}{cells.map(d=>{
           const rows=contents.get(d)||[];
-          const highCount=rows.filter(e=>e.task.priority==="high"&&!doneKeys.has(occurrenceKey(e.task,d))).length;
-          return <button key={d} className={"td-cell "+(d===today?"td-cell-today ":"")+(d===selected&&view==="day"?"td-selected ":"")+(d.slice(0,7)!==month?"td-other ":"")+(highCount?"td-has-high":"")} onClick={()=>jump(d)} onFocus={()=>setHoverDay(d)} onMouseEnter={()=>setHoverDay(d)} aria-label={dateLabel(d)+"，"+rows.length+"项待办"+(highCount?"，其中"+highCount+"项高优先级":"")}>
-            <b>{Number(d.slice(-2))}</b>{rows.slice(0,2).map(({task})=>{
-              const done=doneKeys.has(occurrenceKey(task,d)),high=task.priority==="high"&&!done;
-              const mark=done ? undefined : task.color || (urgencyLabel(task,today,now) ? "var(--td-urgent)" : undefined);
-              return <span style={mark ? {"--td-mark":mark} as CSSProperties : undefined} data-marked={mark ? true : undefined} className={done?"td-cell-done":high?"td-priority-high":""} key={task.id} title={[task.title,task.time||"全天"].join(" · ")}>{high?"↑ ":""}{task.title}</span>
+          const highCount=rows.filter(item=>item.high).length;
+          return <button key={d} className={"td-cell "+(d===today?"td-cell-today ":"")+(d===selected&&view==="day"?"td-selected ":"")+(d.slice(0,7)!==month?"td-other ":"")+(highCount?"td-has-high":"")} onClick={()=>jump(d)} onFocus={()=>setHoverDay(d)} onMouseEnter={()=>setHoverDay(d)} aria-label={dateLabel(d)+"，"+rows.length+"项安排"+(highCount?"，其中"+highCount+"项高优先级":"")}>
+            <b>{Number(d.slice(-2))}</b>{rows.slice(0,2).map(item=>{
+              const mark=item.event?.color || item.task?.color || (item.task && urgencyLabel(item.task,today,now) ? "var(--td-urgent)" : undefined);
+              return <span key={item.key} style={mark ? {"--td-mark":mark} as CSSProperties : undefined} data-marked={mark ? true : undefined} className={item.high?"td-priority-high":""} title={item.timeLabel+" · "+item.title}>{item.high?"↑ ":""}{item.title}{item.event && item.time && <time> {item.time}</time>}</span>
             })}{rows.length>2 && <i>+{rows.length-2}</i>}</button>;
         })}</div>
         {monthHasHigh && <p className="td-legend"><span className="td-priority-high">↑ 高优先级</span></p>}
-        {hoverDay && contents.has(hoverDay) && <div className="td-day-preview"><b>{dateLabel(hoverDay)}</b>{(contents.get(hoverDay)||[]).map(({task})=>{
-          const done=doneKeys.has(occurrenceKey(task,hoverDay));
-          return <p key={task.id}>{task.priority==="high"&&!done&&<span className="td-priority-high">↑ 高优先级</span>}{done?"✓ ":""}{task.time||"全天"}　{task.title}</p>
-        })}{!contents.get(hoverDay)?.length&&<p>这天暂时空着。</p>}</div>}
+        {hoverDay && contents.has(hoverDay) && <div className="td-day-preview"><b>{dateLabel(hoverDay)}</b>{(contents.get(hoverDay)||[]).map(item=>
+          <p key={item.key}>{item.high&&<span className="td-priority-high">↑ 高优先级</span>}{item.timeLabel}　{item.title}</p>)}{!contents.get(hoverDay)?.length&&<p>这天暂时空着。</p>}</div>}
       </section>
       <button className="td-mobile-add" onClick={()=>{input.current?.scrollIntoView({block:"center"});input.current?.focus()}}>＋ 随手记</button>
       <dialog id="capture-dialog" aria-label="确认待办"/>
+      {eventEditor && <CalendarEventEditor day={eventEditor.day} original={eventEditor.original} close={()=>setEventEditor(null)} save={changeEvent} remove={()=>changeEvent(null)}/>}
       {settingsBase && <SettingsEditor settings={settingsBase} categories={state!.categories} close={()=>setSettingsBase(null)} onSave={async(next,added,removed,renamed)=>{
         await mutate(s=>{
           if([...new Set([...Object.keys(settingsBase),...Object.keys(s.settings)])].some(k=>s.settings[k as keyof Settings]!==settingsBase[k as keyof Settings]))throw Error("设置已在另一处更新，请重新打开设置确认。");

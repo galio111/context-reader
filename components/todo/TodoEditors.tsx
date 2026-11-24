@@ -6,7 +6,7 @@ export function EditorDialog({title, close, children}: {title:string;close:()=>v
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {const el = ref.current; if (!el?.open) el?.showModal(); return () => el?.close()}, []);
   return <dialog ref={ref} className="td-dialog" aria-label={title} onCancel={e=>{e.preventDefault();close()}}>
-    <div className="td-heading"><h2>{title}</h2><button type="button" aria-label="关闭设置" onClick={close}>关闭</button></div>{children}
+    <div className="td-heading"><h2>{title}</h2><button type="button" aria-label={title==="待办设置"?"关闭设置":"关闭"+title} onClick={close}>关闭</button></div>{children}
   </dialog>;
 }
 export function InlineEditor({task, categories, save, cancel}: {task:Task;categories:string[];save:(task:Task)=>Promise<void>;cancel:()=>void}) {

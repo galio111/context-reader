@@ -56,7 +56,7 @@
 .td-tick svg{opacity:0;width:15px;height:15px;fill:none;stroke:white;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 .td-checked .td-tick{opacity:1}.td-checked .td-tick:before{background:var(--td-blue);border-color:var(--td-blue)}
 .td-checked .td-tick svg{opacity:1}.td-checked .td-tick path{stroke-dasharray:1;animation:td-ink .28s ease-out both}
-.td-checked strong,.td-cell-done{text-decoration:line-through}
+.td-checked strong{text-decoration:line-through}
 @keyframes td-ink{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 .td-done{background:var(--td-rail);border-radius:6px;padding:7px 11px;margin-top:20px}
 .td-done summary{font-size:13px;color:var(--td-sub);padding:3px}
@@ -72,6 +72,12 @@
 .td-calendar-head button{width:32px;height:32px;color:var(--td-blue);border-radius:5px}
 .td-month{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
 .td-week{text-align:center;padding:7px;font-size:12px;color:var(--td-sub)}
+.td-calendar-head .td-event-add{width:auto;padding:0 6px;font-size:13px}
+.td-calendar-head>div{display:flex;align-items:center}
+.td-event-row{grid-template-columns:minmax(0,1fr) auto;border-inline-start:4px solid var(--td-mark);padding-inline-start:10px}
+.td-weekdays{display:flex;gap:3px;flex-wrap:wrap;margin:6px 0}
+.td-weekdays button{padding:6px;border:1px solid var(--td-line);border-radius:5px}
+.td-weekdays [aria-pressed=true]{background:var(--td-fill);border-color:var(--td-blue);color:var(--td-blue);font-weight:650}
 .td-cell{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:2px;min-height:74px;min-width:0;border-top:1px solid var(--td-line);border-right:1px solid var(--td-line);padding:4px 3px;text-align:left}
 .td-cell:nth-child(7n){border-right:0}
 .td-cell:hover,.td-cell:focus-visible,.td-selected{background:var(--td-fill)}

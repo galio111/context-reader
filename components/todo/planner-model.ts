@@ -1,4 +1,4 @@
-import type {PrivateTodoSnapshot,PrivateTodoState,TodoCompletion,TodoTask} from "@/lib/privateTodoState";
+import type {CalendarEvent,PrivateTodoSnapshot,PrivateTodoState,TodoCompletion,TodoTask} from "@/lib/privateTodoState";
 export type Task=TodoTask;
 export type Completed=TodoCompletion;
 export type TodoData=PrivateTodoState;
@@ -58,6 +58,35 @@ export function nextMonth(month: string, step: number) {
 }
 export function dayEntries(tasks: Task[], day: string): Entry[] {
   return tasks.filter(t => !t.daily && t.date === day).map(task => ({task, occ: day}));
+}
+function occursOn(event:CalendarEvent, day:string, weekday:number) {
+  return event.startDate<=day && (!event.endDate || day<=event.endDate) &&
+    (event.frequency==="weekly" ? event.weekdays.includes(weekday) : event.monthDay===Number(day.slice(-2)));
+}
+export function firstEventDate(event:CalendarEvent) {
+  // Adjacent occurrences of a monthly date are at most 61 days apart.
+  for(let offset=0;offset<=62;offset++){
+    const day=plusDays(event.startDate,offset);
+    if(event.endDate && day>event.endDate)break;
+    if(occursOn(event,day,new Date(day+"T12:00:00Z").getUTCDay()))return day;
+  }
+  return "";
+}
+export function eventsOnDay(events: CalendarEvent[], day: string) {
+  const weekday = new Date(day+"T12:00:00Z").getUTCDay();
+  return events.filter(event=>occursOn(event,day,weekday))
+    .sort((a,b)=>a.startTime.localeCompare(b.startTime) || a.title.localeCompare(b.title,"zh-CN"));
+}
+export function eventTime(event:CalendarEvent) {
+  return event.startTime ? [event.startTime,event.endTime].filter(Boolean).join("–") : "全天";
+}
+type CalendarItem = {key:string;title:string;time:string;timeLabel:string;high:boolean;task?:Task;event?:CalendarEvent};
+export function calendarItems(tasks:Task[],events:CalendarEvent[],day:string,completed:ReadonlySet<string>):CalendarItem[] {
+  const items:CalendarItem[]=dayEntries(tasks,day).filter(e=>!completed.has(occurrenceKey(e.task,day))).map(({task})=>({
+    key:"task:"+task.id,title:task.title,time:task.time,timeLabel:task.time || "全天",high:task.priority==="high",task
+  }));
+  for(const event of eventsOnDay(events,day))items.push({key:"event:"+event.id,title:event.title,time:event.startTime,timeLabel:eventTime(event),high:false,event});
+  return items.sort((a,b)=>Number(b.high)-Number(a.high) || a.time.localeCompare(b.time));
 }
 function byDeadline(a: Entry, b: Entry) {
   return (a.occ || "9999").localeCompare(b.occ || "9999") || (a.task.time || "24:00").localeCompare(b.task.time || "24:00") || a.task.title.localeCompare(b.task.title, "zh-CN");

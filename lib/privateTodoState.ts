@@ -13,6 +13,11 @@ export type TodoTask = {
   skippedDates?: string[];
 };
 
+export type CalendarEvent = {
+  id:string; title:string; frequency:"weekly"|"monthly"; weekdays:number[]; monthDay:number;
+  startDate:string; endDate:string; startTime:string; endTime:string; color:string;
+};
+
 export type TodoCompletion = {
   key: string;
   taskId: string;
@@ -28,6 +33,7 @@ export type PrivateTodoState = {
   version: 1;
   categories: string[];
   tasks: TodoTask[];
+  events?: CalendarEvent[];
   history: TodoCompletion[];
   settings: {
     learnDefaults: boolean;
@@ -68,6 +74,17 @@ function task(value: unknown): value is TodoTask {
       && value.skippedDates.every(date) && unique(value.skippedDates)));
 }
 
+export function isCalendarEvent(value:unknown): value is CalendarEvent {
+  if (!object(value) || !text(value.id,160) || !text(value.title,300) || !date(value.startDate)
+    || !(value.endDate === "" || (date(value.endDate) && value.endDate >= value.startDate))
+    || !(value.startTime === "" || time(value.startTime))
+    || !(value.endTime === "" || (time(value.endTime) && typeof value.endTime === "string" && typeof value.startTime === "string" && value.startTime && value.endTime > value.startTime))
+    || typeof value.color !== "string" || !optionalColor(value.color)) return false;
+  return (value.frequency === "weekly" || value.frequency === "monthly") && integer(value.monthDay,1,31)
+    && Array.isArray(value.weekdays) && value.weekdays.every(n=>integer(n,0,6)) && unique(value.weekdays)
+    && (value.frequency !== "weekly" || value.weekdays.length > 0);
+}
+
 function completion(value: unknown): value is TodoCompletion {
   if (!object(value) || !text(value.taskId, 160) || !date(value.occ)) return false;
   return typeof value.daily === "boolean"
@@ -81,6 +98,7 @@ export function isPrivateTodoState(value: unknown): value is PrivateTodoState {
   if (!object(value) || value.version !== 1 || !Array.isArray(value.categories)
     || !value.categories.every(c => text(c, 64)) || !unique(value.categories)
     || !Array.isArray(value.tasks) || !value.tasks.every(task) || !unique(value.tasks.map(t => t.id))
+    || (value.events !== undefined && (!Array.isArray(value.events) || !value.events.every(isCalendarEvent) || !unique(value.events.map(event=>event.id))))
     || !Array.isArray(value.history) || !value.history.every(completion) || !unique(value.history.map(h => h.key))) return false;
   const s = value.settings;
   if (!object(s) || typeof s.learnDefaults !== "boolean" || !missed(s.defaultMissed) || typeof s.emailEnabled !== "boolean"
