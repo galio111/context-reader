@@ -194,11 +194,13 @@ export default function PrivateTodoWorkspace() {
       </section>
       <button className="td-mobile-add" onClick={()=>{input.current?.scrollIntoView({block:"center"});input.current?.focus()}}>＋ 随手记</button>
       <dialog id="capture-dialog" aria-label="确认待办"/>
-      {settingsBase && <SettingsEditor settings={settingsBase} categories={state!.categories} close={()=>setSettingsBase(null)} onSave={async(next,added,removed)=>{
+      {settingsBase && <SettingsEditor settings={settingsBase} categories={state!.categories} close={()=>setSettingsBase(null)} onSave={async(next,added,removed,renamed)=>{
         await mutate(s=>{
           if([...new Set([...Object.keys(settingsBase),...Object.keys(s.settings)])].some(k=>s.settings[k as keyof Settings]!==settingsBase[k as keyof Settings]))throw Error("设置已在另一处更新，请重新打开设置确认。");
-          return {...updateCategories(s,added,removed),settings:next};});
-        if(removed.includes(chosenCategory))setCategoryFilter("");
+          return {...updateCategories(s,added,removed,renamed),settings:next};});
+        const activeRename=renamed.find(item=>item.from===chosenCategory);
+        if(activeRename)setCategoryFilter(activeRename.to);
+        else if(removed.includes(chosenCategory))setCategoryFilter("");
         setNotice({text:"设置已保存"});
       }}/>}
     </div>}

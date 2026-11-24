@@ -50,6 +50,16 @@ test("removing a category retains recurring and one-off tasks, historic completi
   assert.deepEqual(changed.history,s.history);
   assert.deepEqual(updateCategories(changed,["科研"],["学习"]),changed);
 });
+test("renaming updates task and history labels in place, and rejects a competing name",()=>{
+  const state=workspace([{...base,category:"学习"}]);state.categories=["学习","生活"];
+  state.history=[{key:"one@once",taskId:"one",occ:day,daily:false,title:base.title,category:"学习",finished:now}];
+  const next=updateCategories(state,[],[],[{from:"学习",to:"课程"}]);
+  assert.deepEqual(next.categories,["课程","生活"]);
+  assert.deepEqual(next.tasks,[{...state.tasks[0],category:"课程"}]);
+  assert.deepEqual(next.history,[{...state.history[0],category:"课程"}]);
+  assert.throws(()=>updateCategories(state,[],[],[{from:"学习",to:"生活"}]));
+  assert.throws(()=>updateCategories(next,[],[],[{from:"学习",to:"科研"}]));
+});
 test("24 hour view spans midnight and excludes untimed backlog",()=>{
   const s=workspace([{...base,id:"none",date:""},{...base,id:"past",date:day,time:"09:00"},
     {...base,id:"future",date:"2026-04-11",time:"12:00"},{...base,id:"all-day",date:day}]);

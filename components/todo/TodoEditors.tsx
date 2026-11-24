@@ -1,6 +1,6 @@
 "use client";
 import {useEffect, useRef, useState, type FormEvent, type ReactNode} from "react";
-import {defaultUrgentColor,priorityLabels, type Task, type Settings} from "./planner-model";
+import {defaultUrgentColor,priorityLabels, type Task, type Settings, type CategoryRename} from "./planner-model";
 
 export function EditorDialog({title, close, children}: {title:string;close:()=>void;children:ReactNode}) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -36,15 +36,29 @@ export function InlineEditor({task, categories, save, cancel}: {task:Task;catego
     {error && <p role="alert">{error}</p>}
   </form>;
 }
-export function SettingsEditor({settings,categories,onSave,close}: {settings:Settings;categories:string[];onSave:(next:Settings,added:string[],removed:string[])=>Promise<void>;close:()=>void}) {
-  const [draft,set] = useState(settings), [initialNames] = useState(categories), [names,setNames] = useState(categories), [category,setCategory] = useState("");
+export function SettingsEditor({settings,categories,onSave,close}: {settings:Settings;categories:string[];onSave:(next:Settings,added:string[],removed:string[],renamed:CategoryRename[])=>Promise<void>;close:()=>void}) {
+  const [draft,set] = useState(settings), [category,setCategory] = useState("");
+  const [rows,setRows] = useState(()=>categories.map(name=>({id:name, original:name, name, deleted:false})));
+  const [editing,setEditing] = useState<{id:string; previous:string}|null>(null);
+  const updateRow = (id:string, patch:{name?:string;deleted?:boolean}) => setRows(list=>list.map(row=>row.id===id?{...row,...patch}:row));
   const [error,setError] = useState(""), [saving,setSaving] = useState(false);
   const change = <K extends keyof Settings>(key:K,value:Settings[K])=>set(old=>({...old,[key]:value}));
-  const add = () => {const name=category.trim(); if(name && !names.includes(name)) setNames(old=>[...old,name]);setCategory("")};
+  const add = () => {
+    const name=category.trim();
+    if(!name)return;
+    if(rows.some(row=>!row.deleted && row.name.trim()===name)){setError("已存在同名分类。");return}
+    setRows(list=>[...list,{id:"new:"+crypto.randomUUID(),original:"",name,deleted:false}]);setCategory("");setError("");
+  };
   async function submit(e:FormEvent) {
     e.preventDefault(); if(saving)return;setSaving(true);setError("");
-    const text=category.trim(); const newNames=text && !names.includes(text)?[...names,text]:names;
-    try {await onSave({...draft,emailAddress:draft.emailAddress.trim()},newNames.filter(name=>!initialNames.includes(name)),initialNames.filter(name=>!newNames.includes(name)));close()}
+    const visible=rows.filter(row=>!row.deleted).map(row=>({...row,name:row.name.trim()}));
+    if(category.trim())visible.push({id:"",original:"",name:category.trim(),deleted:false});
+    const names=visible.map(row=>row.name);
+    if(names.includes("") || new Set(names).size!==names.length){setError("分类名称不能为空或重复。");setSaving(false);return}
+    const added=visible.filter(row=>!row.original).map(row=>row.name);
+    const removed=rows.filter(row=>row.original && row.deleted).map(row=>row.original);
+    const renamed=visible.filter(row=>row.original && row.original!==row.name).map(row=>({from:row.original,to:row.name}));
+    try {await onSave({...draft,emailAddress:draft.emailAddress.trim()},added,removed,renamed);close()}
     catch(e){setError((e as Error).message);setSaving(false)}
   }
   return <EditorDialog close={()=>{if(!saving)close()}} title="待办设置"><form onSubmit={submit}>
@@ -63,10 +77,21 @@ export function SettingsEditor({settings,categories,onSave,close}: {settings:Set
       <label className="td-check-label"><input type="checkbox" checked={draft.learnDefaults} onChange={e=>change("learnDefaults",e.target.checked)}/>参考我的历史待办，建议分类和常用默认值</label>
       <label>新建每日任务时默认<select value={draft.defaultMissed} onChange={e=>change("defaultMissed",e.target.value as Settings["defaultMissed"])}><option value="skip">漏做自动跳过</option><option value="carry">漏做留到次日补办</option></select></label>
     </fieldset>
-    <fieldset><legend>我的分类</legend><div className="td-tags">{names.map(name=><span key={name}>{name}<button type="button" aria-label={"删除分类「"+name+"」"} disabled={saving} onClick={()=>setNames(list=>list.filter(n=>n!==name))}>×</button></span>)}</div>
-      {initialNames.some(name=>!names.includes(name)) && <div className="td-removed-categories">
+    <fieldset><legend>我的分类</legend><div className="td-category-list">{rows.filter(row=>!row.deleted).map(row=>
+      <div key={row.id} className="td-category-row">
+        {editing?.id===row.id ? <input autoFocus aria-label="修改分类名称" value={row.name} maxLength={64}
+          onChange={e=>updateRow(row.id,{name:e.target.value})} onKeyDown={e=>{
+            if(e.nativeEvent.isComposing || e.nativeEvent.keyCode===229)return;
+            if(e.key==="Enter"){e.preventDefault();setEditing(null)}
+            if(e.key==="Escape"){e.preventDefault();e.stopPropagation();updateRow(row.id,{name:editing.previous});setEditing(null)}
+          }}/> : <span>{row.name}</span>}
+        <button type="button" aria-label={(editing?.id===row.id?"完成改名":"改名")+"「"+row.name+"」"} disabled={saving}
+          onClick={()=>setEditing(editing?.id===row.id ? null : {id:row.id,previous:row.name})}>{editing?.id===row.id?"完成":"改名"}</button>
+        <button type="button" aria-label={"删除分类「"+row.name+"」"} disabled={saving} onClick={()=>{updateRow(row.id,{deleted:true});setEditing(null)}}>删除</button>
+      </div>)}</div>
+      {rows.some(row=>row.deleted && row.original) && <div className="td-removed-categories">
         <p>保存后，这些分类下的待办将移到「未分类」。</p>
-        {initialNames.filter(name=>!names.includes(name)).map(name=><button type="button" key={name} disabled={saving} onClick={()=>setNames(list=>[...list,name])}>撤销删除「{name}」</button>)}
+        {rows.filter(row=>row.deleted && row.original).map(row=><button type="button" key={row.id} disabled={saving} onClick={()=>updateRow(row.id,{deleted:false})}>撤销删除「{row.name}」</button>)}
       </div>}
       <div className="td-actions"><input aria-label="新分类名称" placeholder="新分类名称" maxLength={32} value={category} onChange={e=>setCategory(e.target.value)} onKeyDown={e=>{if(e.key==="Enter" && !e.nativeEvent.isComposing){e.preventDefault();add()}}}/><button type="button" onClick={add} disabled={!category.trim()}>添加</button></div>
     </fieldset>

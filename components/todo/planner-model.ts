@@ -26,12 +26,21 @@ export function urgencyLabel(task: Task, today: string, now: number) {
 export const priorityLabels = {"": "未指定", low: "低", normal: "普通", high: "高"};
 export const dailyStart = (t: Task) => t.date || t.created;
 
-export function updateCategories(state: TodoData, added: string[], removed: string[]): TodoData {
+export type CategoryRename = {from:string; to:string};
+export function updateCategories(state: TodoData, added: string[], removed: string[], renamed:CategoryRename[]=[]): TodoData {
   const deleted = new Set(removed);
-  const categories = [...new Set([...state.categories.filter(name => !deleted.has(name)), ...added])];
+  const rename = new Map(renamed.map(({from,to}) => [from,to]));
+  if (renamed.some(({from})=>!state.categories.includes(from))) throw Error("分类已在另一处修改，请重新打开设置。");
+  const existing = state.categories.filter(name => !deleted.has(name)).map(name=>rename.get(name) ?? name);
+  if (new Set(existing).size !== existing.length) throw Error("已存在同名分类，请换一个名字。");
+  const categories = [...new Set([...existing,...added])];
   const fallback = categories.includes("未分类") ? "未分类" : "";
-  const tasks = deleted.size ? state.tasks.map(task => deleted.has(task.category) ? {...task, category:fallback} : task) : state.tasks;
-  return {...state, categories, tasks};
+  const tasks = deleted.size || rename.size ? state.tasks.map(task => {
+    const category = deleted.has(task.category) ? fallback : rename.get(task.category);
+    return category === undefined ? task : {...task,category};
+  }) : state.tasks;
+  const history = rename.size ? state.history.map(h=>rename.has(h.category) ? {...h,category:rename.get(h.category)!} : h) : state.history;
+  return {...state, categories, tasks, history};
 }
 
 export function calendarDays(month: string) {
