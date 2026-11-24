@@ -1,6 +1,6 @@
 import {strict as assert} from "node:assert";
 import {test} from "node:test";
-import {calendarDays,dateLabel,calendarItems,eventsOnDay,firstEventDate,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
+import {calendarDays,dateLabel,weekStart,calendarItems,eventsOnDay,firstEventDate,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
 
 import {isCalendarEvent,type CalendarEvent} from "../lib/privateTodoState";
 const day="2026-04-10";
@@ -89,6 +89,15 @@ test("Today lists every pending one-off due tomorrow, including all-day and alre
   s.history=[{taskId:"done",key:"done@once",occ:tomorrow,daily:false,title:"已完成的待办",category:"",finished:now}];
   const group=taskGroups(s,"today",day,day,now).find(g=>g.title==="明日待办");
   assert.deepEqual(group?.rows.map(row=>row.task.id),["timed","all"]);
+});
+test("a one-off exam and an undated exam week have distinct calendar and time semantics",()=>{
+  const event:CalendarEvent={id:"exam",title:"解剖考试",frequency:"once",weekdays:[],monthDay:1,startDate:"2027-01-01",endDate:"",startTime:"14:00",endTime:"",color:"#234567"};
+  assert.ok(isCalendarEvent(event));assert.equal(eventsOnDay([event],event.startDate).length,1);
+  assert.equal(eventsOnDay([event],"2027-01-02").length,0);
+  const week={...event,frequency:"week" as const,startTime:"",startDate:weekStart(event.startDate)};
+  assert.equal(week.startDate,"2026-12-28");assert.ok(isCalendarEvent(week));assert.ok(!isCalendarEvent({...week,startTime:"14:00"}));
+  for(const d of ["2026-12-28","2027-01-01","2027-01-03"])assert.equal(calendarItems([],[week],d,new Set())[0].timeLabel,"周内日期待定");
+  assert.deepEqual(eventsOnDay([week],"2027-01-04"),[]);
 });
 test("24 hour view spans midnight and excludes untimed backlog",()=>{
   const s=workspace([{...base,id:"none",date:""},{...base,id:"past",date:day,time:"09:00"},

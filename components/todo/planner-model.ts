@@ -66,7 +66,18 @@ export function nextMonth(month: string, step: number) {
 export function dayEntries(tasks: Task[], day: string): Entry[] {
   return tasks.filter(t => !t.daily && t.date === day).map(task => ({task, occ: day}));
 }
+export function weekStart(day:string) {
+  return plusDays(day,-((new Date(day+"T12:00:00Z").getUTCDay()+6)%7));
+}
+export function eventRepeatLabel(event:CalendarEvent) {
+  if(event.frequency==="once")return "单次事件";
+  if(event.frequency==="week")return dateLabel(event.startDate)+"至"+dateLabel(plusDays(event.startDate,6));
+  if(event.frequency==="monthly")return "每月 "+event.monthDay+" 日";
+  return "每周"+[1,2,3,4,5,6,0].filter(n=>event.weekdays.includes(n)).map(n=>"日一二三四五六"[n]).join("、");
+}
 function occursOn(event:CalendarEvent, day:string, weekday:number) {
+  if(event.frequency==="once")return day===event.startDate;
+  if(event.frequency==="week")return day>=event.startDate && day<=plusDays(event.startDate,6);
   return event.startDate<=day && (!event.endDate || day<=event.endDate) &&
     (event.frequency==="weekly" ? event.weekdays.includes(weekday) : event.monthDay===Number(day.slice(-2)));
 }
@@ -85,6 +96,7 @@ export function eventsOnDay(events: CalendarEvent[], day: string) {
     .sort((a,b)=>a.startTime.localeCompare(b.startTime) || a.title.localeCompare(b.title,"zh-CN"));
 }
 export function eventTime(event:CalendarEvent) {
+  if(event.frequency==="week")return "周内日期待定";
   return event.startTime ? [event.startTime,event.endTime].filter(Boolean).join("–") : "全天";
 }
 type CalendarItem = {key:string;title:string;time:string;timeLabel:string;high:boolean;task?:Task;event?:CalendarEvent};

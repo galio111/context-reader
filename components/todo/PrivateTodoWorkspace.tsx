@@ -1,8 +1,8 @@
 "use client";
 import {useCallback,useEffect,useMemo,useRef,useState,type CSSProperties} from "react";
 import Link from "next/link";
-import {calendarDays,defaultUrgentColor,urgencyLabel,updateCategories,dateLabel,relativeDayLabel,calendarItems,firstEventDate,eventsOnDay,eventTime,isoDay,learnedCategory,nextMonth,occurrenceKey,priorityLabels,taskGroups,timing,type Completed,type Entry,type Settings,type Task,type View} from "./planner-model";
-import {CalendarEventEditor,weekdayName} from "./CalendarEventEditor";
+import {calendarDays,defaultUrgentColor,urgencyLabel,updateCategories,dateLabel,relativeDayLabel,calendarItems,firstEventDate,eventsOnDay,eventTime,eventRepeatLabel,plusDays,isoDay,learnedCategory,nextMonth,occurrenceKey,priorityLabels,taskGroups,timing,type Completed,type Entry,type Settings,type Task,type View} from "./planner-model";
+import {CalendarEventEditor} from "./CalendarEventEditor";
 import type {CalendarEvent} from "@/lib/privateTodoState";
 import {InlineEditor,SettingsEditor} from "./TodoEditors";
 import {useTodoStore} from "./useTodoStore";
@@ -42,7 +42,7 @@ function ScopedAdd({category,date,ready,openEvent}:{category?:string;date?:strin
       e.preventDefault();
       if (!draft.trim()) return;
       document.getElementById("quick-form")?.dispatchEvent(new CustomEvent("todo-scoped-add",{detail:{text:draft,category,date,returnFocus:()=>addButton.current,onSaved:()=>{setDraft("");setOpen(false)}}}));
-    }}><input autoFocus aria-label={name+"的新待办"} placeholder="输入事项名称…" maxLength={4000} value={draft} onChange={e=>setDraft(e.target.value)} onKeyDown={e=>{if(e.key==="Enter" && (e.nativeEvent.isComposing || e.nativeEvent.keyCode===229))e.preventDefault();if(e.key==="Escape"){setOpen(false);addButton.current?.focus()}}}/><button type="submit" disabled={!draft.trim()}>记待办</button><button type="button" onClick={()=>openEvent(draft.trim(),date,()=>{setDraft("");setOpen(false)})}>固定事件</button></form>}
+    }}><input autoFocus aria-label={name+"的新待办"} placeholder="输入事项名称…" maxLength={4000} value={draft} onChange={e=>setDraft(e.target.value)} onKeyDown={e=>{if(e.key==="Enter" && (e.nativeEvent.isComposing || e.nativeEvent.keyCode===229))e.preventDefault();if(e.key==="Escape"){setOpen(false);addButton.current?.focus()}}}/><button type="submit" disabled={!draft.trim()}>记待办</button><button type="button" onClick={()=>openEvent(draft.trim(),date,()=>{setDraft("");setOpen(false)})}>记事件</button></form>}
   </>;
 }
 export default function PrivateTodoWorkspace() {
@@ -107,6 +107,8 @@ export default function PrivateTodoWorkspace() {
   const monthHasHigh=[...contents.values()].some(rows=>rows.some(item=>item.high));
   const shownDay=view==="day" ? selected : today;
   const shownEvents=view==="day" || view==="today" ? eventsOnDay(state?.events||[],shownDay) : [];
+  const tomorrow=plusDays(today,1);
+  const tomorrowEvents=view==="today" ? eventsOnDay(state?.events||[],tomorrow).filter(event=>event.frequency!=="week" || event.startDate===tomorrow) : [];
   const openEvent:OpenEvent=(title,day,onSaved)=>setEventEditor({original:null,day:day || today,title,onSaved});
   async function changeEvent(next:CalendarEvent|null) {
     if(!eventEditor)return;
@@ -121,7 +123,7 @@ export default function PrivateTodoWorkspace() {
       return {...s,events:next ? (original ? events.map(event=>event.id===id?next:event) : [...events,next]) : events.filter(event=>event.id!==id)};
     });
     if(next && !original){eventEditor.onSaved?.();const first=firstEventDate(next);if(first)jump(first)}
-    setNotice({text:next?"固定事件已保存":"已删除整组固定事件"});
+    setNotice({text:next?"日历事件已保存":"日历事件已删除"});
   }
   function jump(day:string) {setSelected(day);setHoverDay(day);setMonth(day.slice(0,7));setView("day");setEditing(null);if(window.innerWidth<950)agenda.current?.scrollIntoView({block:"start"})}
   const restore=useCallback(async(key:string)=>{
@@ -166,6 +168,12 @@ export default function PrivateTodoWorkspace() {
       <div><strong>{task.title}</strong><small>{urgent && <b className="td-urgency">{urgent}</b>}{task.category && <span>{task.category}</span>}{timing(entry,today)}{task.priority && urgent!=="高优先级" && " · "+priorityLabels[task.priority]+"优先级"}</small></div>
       <button className="td-link" aria-label={"编辑「"+task.title+"」"} onClick={()=>setEditing({key:editKey,original:task})}>编辑</button></div>;
   }
+  function renderEvents(events:CalendarEvent[],day:string,heading:string){
+    if(!events.length)return null;
+    return <section className="td-group"><h2>{heading}</h2>{events.map(event=><div key={event.id} className="td-row td-event-row" style={{"--td-mark":event.color} as CSSProperties}>
+      <div><strong>{event.title}</strong><small>{eventTime(event)} · {eventRepeatLabel(event)}</small></div>
+      <button className="td-link" aria-label={"编辑日历事件「"+event.title+"」"} onClick={()=>setEventEditor({day,original:event})}>编辑</button></div>)}</section>;
+  }
   return <main className="td-app" style={{"--td-urgent":state?.settings.urgentColor || defaultUrgentColor} as CSSProperties}>
     <header className="td-top"><div><span className="td-brand">Context Reader</span><span className="td-separator">/</span><b>私人待办</b></div><Link href="/" prefetch={false}>返回阅读站 ↗</Link></header>
     {error && <p role="alert" className="td-error">{error} <button onClick={()=>snapshot?void refresh():location.reload()}>重新连接</button></p>}
@@ -177,7 +185,7 @@ export default function PrivateTodoWorkspace() {
           <button className="td-quick-event" type="button" onClick={()=>{
             const original=input.current?.value || "";
             openEvent(original.trim(),undefined,()=>{if(input.current?.value===original)input.current.value=""});
-          }}>固定事件</button>
+          }}>记事件</button>
           <div id="record-status" role="status"/>{captureIssue && <p role="alert">{captureIssue}</p>}
         </form>
         <nav aria-label="清单范围">{nav.map(([value,title])=><button key={value} aria-current={view===value?"page":undefined} onClick={()=>{setView(value);setEditing(null)}}>{title}</button>)}</nav>
@@ -187,27 +195,26 @@ export default function PrivateTodoWorkspace() {
         <div className="td-heading"><h1>{view==="day"?dateLabel(selected)+"的待办":labels[view]}</h1>{view==="day" && <ScopedAdd openEvent={openEvent} key={selected} date={selected} ready={captureReady}/>}{view==="today"&&<span>{dateLabel(today)} · {"周"+"日一二三四五六"[new Date(today+"T12:00:00Z").getUTCDay()]}</span>}</div>
         {view==="all" && <label className="td-filter">分类<select value={categoryFilter} onChange={e=>{setCategoryFilter(e.target.value);setEditing(null)}}><option value="">所有分类</option>{state!.categories.map(c=><option key={c}>{c}</option>)}</select></label>}
         {view==="upcoming" && <p className="td-caption">接下来 24 小时内截止，全天事项按当天结束计算。</p>}
-        {!!shownEvents.length && <section className="td-group"><h2>固定事件</h2>{shownEvents.map(event=><div key={event.id} className="td-row td-event-row" style={{"--td-mark":event.color} as CSSProperties}>
-          <div><strong>{event.title}</strong><small>{eventTime(event)} · {event.frequency==="weekly"?"每周"+[1,2,3,4,5,6,0].filter(n=>event.weekdays.includes(n)).map(weekdayName).map(s=>s.slice(1)).join("、"):"每月 "+event.monthDay+" 日"}</small></div>
-          <button className="td-link" aria-label={"编辑固定事件「"+event.title+"」"} onClick={()=>setEventEditor({day:shownDay,original:event})}>编辑</button></div>)}</section>}
+        {renderEvents(shownEvents,shownDay,"当日日程")}
         {view==="history"?historyDates.size?[...historyDates].map(([day,records])=><section key={day} className="td-group"><h2>{day}</h2>{renderHistory(records)}</section>):<p className="td-empty">勾选完成的待办会按日期留在这里。</p>:
           groups.length?groups.map(group=><section key={group.category===undefined ? group.title : "category:"+group.category} className="td-group"><div className="td-group-head"><h2>{group.title}</h2>{group.category!==undefined && <ScopedAdd openEvent={openEvent} key={group.category} category={group.category} ready={captureReady}/>}</div>{group.rows.map(entry=>renderRow(entry,group.title))}</section>):
           shownEvents.length?null:<p className="td-empty">{view==="today"?"今天还没有要开工、到期或例行的待办。":view==="day"?"这一天没有待完成的事项。":"这个范围内没有待完成的事项。"}</p>}
         {view==="today" && <>
           {!groups.some(group=>group.title==="明日待办") && <section className="td-group"><h2>明日待办</h2><p className="td-caption">明天没有待完成的事项。</p></section>}
+          {renderEvents(tomorrowEvents,tomorrow,"明日日程")}
           {!!undated && <button className="td-link td-undated" onClick={()=>{setCategoryFilter("");setView("all")}}>另有 {undated} 项未定日期，查看全部待办 ↗</button>}
           <details className="td-done"><summary>今日已完成 · {historyDates.get(today)?.length||0}</summary>{renderHistory(historyDates.get(today)||[])}</details></>}
         {view==="day" && <button className="td-link" onClick={()=>setView("today")}>返回今天</button>}
       </section>
       <section className="td-calendar" aria-label="月历"><div className="td-calendar-head"><h2>{month.slice(0,4)} 年 {Number(month.slice(5))} 月</h2>
-        <div><button className="td-event-add" aria-label="添加固定事件" onClick={()=>setEventEditor({original:null,day:view==="day"?selected:month===today.slice(0,7)?today:month+"-01"})}>＋ 固定事件</button><button aria-label="上个月" onClick={()=>{setMonth(nextMonth(month,-1));setHoverDay("")}}>‹</button><button onClick={()=>{setMonth(today.slice(0,7));setSelected(today);setView("today");setHoverDay("")}}>今</button><button aria-label="下个月" onClick={()=>{setMonth(nextMonth(month,1));setHoverDay("")}}>›</button></div></div>
+        <div><button className="td-event-add" aria-label="添加日历事件" onClick={()=>setEventEditor({original:null,day:view==="day"?selected:month===today.slice(0,7)?today:month+"-01"})}>＋ 事件</button><button aria-label="上个月" onClick={()=>{setMonth(nextMonth(month,-1));setHoverDay("")}}>‹</button><button onClick={()=>{setMonth(today.slice(0,7));setSelected(today);setView("today");setHoverDay("")}}>今</button><button aria-label="下个月" onClick={()=>{setMonth(nextMonth(month,1));setHoverDay("")}}>›</button></div></div>
         <div className="td-month">{[..."一二三四五六日"].map(d=><span className="td-week" key={d}>{d}</span>)}{cells.map(d=>{
           const rows=contents.get(d)||[];
           const highCount=rows.filter(item=>item.high).length;
           return <button key={d} className={"td-cell "+(d===today?"td-cell-today ":"")+(d===selected&&view==="day"?"td-selected ":"")+(d.slice(0,7)!==month?"td-other ":"")+(highCount?"td-has-high":"")} onClick={()=>jump(d)} onFocus={()=>setHoverDay(d)} onMouseEnter={()=>setHoverDay(d)} aria-label={dateLabel(d,today)+"，"+rows.length+"项安排"+(highCount?"，其中"+highCount+"项高优先级":"")}>
             <b>{Number(d.slice(-2))}</b>{relativeDayLabel(d,today) && <small className="td-relative-day">{relativeDayLabel(d,today)}</small>}{rows.slice(0,2).map(item=>{
               const mark=item.event?.color || item.task?.color || (item.task && urgencyLabel(item.task,today,now) ? "var(--td-urgent)" : undefined);
-              return <span key={item.key} style={mark ? {"--td-mark":mark} as CSSProperties : undefined} data-marked={mark ? true : undefined} className={item.high?"td-priority-high":""} title={item.timeLabel+" · "+item.title}>{item.high?"↑ ":""}{item.title}{item.event && item.time && <time> {item.time}</time>}</span>
+              return <span key={item.key} style={mark ? {"--td-mark":mark} as CSSProperties : undefined} data-marked={mark ? true : undefined} className={item.high?"td-priority-high":""} title={item.timeLabel+" · "+item.title}>{item.high?"↑ ":""}{item.event?.frequency==="week" && "周内·"}{item.title}{item.event && item.time && <time> {item.time}</time>}</span>
             })}{rows.length>2 && <i>+{rows.length-2}</i>}</button>;
         })}</div>
         {monthHasHigh && <p className="td-legend"><span className="td-priority-high">↑ 高优先级</span></p>}

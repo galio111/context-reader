@@ -14,7 +14,7 @@ export type TodoTask = {
 };
 
 export type CalendarEvent = {
-  id:string; title:string; frequency:"weekly"|"monthly"; weekdays:number[]; monthDay:number;
+  id:string; title:string; frequency:"once"|"week"|"weekly"|"monthly"; weekdays:number[]; monthDay:number;
   startDate:string; endDate:string; startTime:string; endTime:string; color:string;
 };
 
@@ -80,7 +80,9 @@ export function isCalendarEvent(value:unknown): value is CalendarEvent {
     || !(value.startTime === "" || time(value.startTime))
     || !(value.endTime === "" || (time(value.endTime) && typeof value.endTime === "string" && typeof value.startTime === "string" && value.startTime && value.endTime > value.startTime))
     || typeof value.color !== "string" || !optionalColor(value.color)) return false;
-  return (value.frequency === "weekly" || value.frequency === "monthly") && integer(value.monthDay,1,31)
+  if ((value.frequency==="once" || value.frequency==="week") && value.endDate!=="")return false;
+  if (value.frequency==="week" && (value.startTime!=="" || value.endTime!=="" || new Date(value.startDate+"T12:00:00Z").getUTCDay()!==1))return false;
+  return ["once","week","weekly","monthly"].includes(String(value.frequency)) && integer(value.monthDay,1,31)
     && Array.isArray(value.weekdays) && value.weekdays.every(n=>integer(n,0,6)) && unique(value.weekdays)
     && (value.frequency !== "weekly" || value.weekdays.length > 0);
 }
