@@ -211,7 +211,7 @@ export default function PrivateTodoWorkspace() {
         <div className="td-month">{[..."一二三四五六日"].map(d=><span className="td-week" key={d}>{d}</span>)}{cells.map(d=>{
           const rows=contents.get(d)||[];
           const highCount=rows.filter(item=>item.high).length;
-          return <button key={d} className={"td-cell "+(d===today?"td-cell-today ":"")+(d===selected&&view==="day"?"td-selected ":"")+(d.slice(0,7)!==month?"td-other ":"")+(highCount?"td-has-high":"")} onClick={()=>jump(d)} onFocus={()=>setHoverDay(d)} onMouseEnter={()=>setHoverDay(d)} aria-label={dateLabel(d,today)+"，"+rows.length+"项安排"+(highCount?"，其中"+highCount+"项高优先级":"")}>
+          return <button key={d} className={"td-cell "+(d===today?"td-cell-today ":"")+(d===selected&&view==="day"?"td-selected ":"")+(d.slice(0,7)!==month?"td-other ":"")} onClick={()=>jump(d)} onFocus={()=>setHoverDay(d)} onMouseEnter={()=>setHoverDay(d)} aria-label={dateLabel(d,today)+"，"+rows.length+"项安排"+(highCount?"，其中"+highCount+"项高优先级":"")}>
             <b>{Number(d.slice(-2))}</b>{relativeDayLabel(d,today) && <small className="td-relative-day">{relativeDayLabel(d,today)}</small>}{rows.slice(0,2).map(item=>{
               const mark=item.event?.color || item.task?.color || (item.task && urgencyLabel(item.task,today,now) ? "var(--td-urgent)" : undefined);
               return <span key={item.key} style={mark ? {"--td-mark":mark} as CSSProperties : undefined} data-marked={mark ? true : undefined} className={item.high?"td-priority-high":""} title={item.timeLabel+" · "+item.title}>{item.high?"↑ ":""}{item.event?.frequency==="week" && "周内·"}{item.title}{item.event && item.time && <time> {item.time}</time>}</span>
