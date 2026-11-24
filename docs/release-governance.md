@@ -2,6 +2,10 @@
 
 ## Current production release
 
+Accepted 20261124T220835, parent 20261124T213933, source c26666ed3f57d3599a0caf0d65f9df6247cc3ca3. The private planner supports date-scoped capture and category management. [Evidence](evidence/todo-day-categories-20261124.json)
+
+## Previous planner grouping release
+
 Accepted 20261124T213933, parent 20261124T205937, source 8a47f1056a25d4fa8c71312f3ac86c7bcef47b31. Private planner grouping, daily exclusions and color preferences passed the release checks. [Evidence](evidence/todo-colors-20261124.json)
 
 ## Previous private planner release

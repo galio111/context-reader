@@ -1,0 +1,47 @@
+{
+  "release": "20261124T220835",
+  "parent": "20261124T213933",
+  "source": "c26666ed3f57d3599a0caf0d65f9df6247cc3ca3",
+  "site": "https://context-reader.com/todo",
+  "local": {
+    "productionBuild": true,
+    "todoAndProviderTests": 17,
+    "critical": 90,
+    "architecture": 178,
+    "releaseContracts": true,
+    "desktop": 1440,
+    "mobile": 390,
+    "exercised": [
+      "calendar day addition with time and delayed AI response",
+      "category rename and duplicate rejection",
+      "delete, undo, cancel, save and reload",
+      "task and history retention"
+    ]
+  },
+  "production": {
+    "public": {
+      "release": "20261124T220835",
+      "parent": "20261124T213933",
+      "page": 200,
+      "login": true,
+      "privateForm": 0,
+      "cache": "private, no-store",
+      "api": 401,
+      "head": 401,
+      "parse": 401,
+      "cron": 401,
+      "ownerDataCache": "private, no-store",
+      "capture": 200,
+      "home": 200,
+      "account": 200,
+      "browserErrors": []
+    },
+    "signedInReading": true,
+    "ordinaryAccountTodoDenied": true,
+    "syntheticAccountRemoved": true,
+    "health": true,
+    "timer": "active",
+    "rollbackImages": true,
+    "realOwnerDataEditedByVerification": false
+  }
+}
