@@ -7,7 +7,7 @@
   const validDate = (d) => typeof d === "string" && datePattern.test(d) && parser.validDate(...d.split("-").map(Number)) === d;
   const validTime = (t) => typeof t === "string" && /^([01]\d|2[0-3]):[0-5]\d$/.test(t);
   const monthTitle = (d) => Number(d.slice(0, 4)) + " 年 " + Number(d.slice(5, 7)) + " 月";
-  const shortDate = (d) => Number(d.slice(5, 7)) + "月" + Number(d.slice(8)) + "日";
+
   const n = (tag, cls = "", value) => {
     const node = document.createElement(tag);
     if (cls) node.className = cls;
@@ -56,6 +56,7 @@
     let editor, itemNav, notes, mainTitle, saveButton;
     const categories = () => app.categories().filter((x) => typeof x === "string" && x);
     const today = () => app.today();
+    const shortDate = d => app.dateLabel ? app.dateLabel(d) : Number(d.slice(5,7))+"月"+Number(d.slice(8))+"日";
     const settings = () => app.getSettings() || {};
     const dirty = () => { touched = true; };
     const active = () => items[selected];

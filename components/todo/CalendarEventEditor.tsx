@@ -7,10 +7,10 @@ import {EditorDialog} from "./TodoEditors";
 const week = [1,2,3,4,5,6,0];
 export const weekdayName = (n:number) => "周"+"日一二三四五六"[n];
 
-export function CalendarEventEditor({day,original,save,remove,close}:{
-  day:string;original:CalendarEvent|null;save:(event:CalendarEvent)=>Promise<void>;remove:()=>Promise<void>;close:()=>void
+export function CalendarEventEditor({day,original,initialTitle="",save,remove,close}:{
+  day:string;original:CalendarEvent|null;initialTitle?:string;save:(event:CalendarEvent)=>Promise<void>;remove:()=>Promise<void>;close:()=>void
 }) {
-  const [draft,setDraft]=useState<CalendarEvent>(()=>original || {id:crypto.randomUUID(),title:"",frequency:"weekly",
+  const [draft,setDraft]=useState<CalendarEvent>(()=>original || {id:crypto.randomUUID(),title:initialTitle.slice(0,300),frequency:"weekly",
     startDate:day,endDate:"",weekdays:[new Date(day+"T12:00:00Z").getUTCDay()],monthDay:Number(day.slice(-2)),startTime:"",endTime:"",color:"#3671a2"});
   const [error,setError]=useState(""),[busy,setBusy]=useState(false),[confirmDelete,setConfirmDelete]=useState(false);
   function change<K extends keyof CalendarEvent>(key:K,value:CalendarEvent[K]){setDraft(old=>({...old,[key]:value}));setError("")}

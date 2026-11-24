@@ -1,6 +1,6 @@
 import {strict as assert} from "node:assert";
 import {test} from "node:test";
-import {calendarDays,calendarItems,eventsOnDay,firstEventDate,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
+import {calendarDays,dateLabel,calendarItems,eventsOnDay,firstEventDate,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
 
 import {isCalendarEvent,type CalendarEvent} from "../lib/privateTodoState";
 const day="2026-04-10";
@@ -76,6 +76,19 @@ test("weekly term bounds, multiple weekdays, monthly short months and leap years
   assert.equal(firstEventDate(monthly),"2028-03-31");
   assert.equal(firstEventDate({...monthly,monthDay:29}),"2028-02-29");
   assert.equal(firstEventDate({...monthly,endDate:"2028-03-25"}),"");
+});
+test("the next three Shanghai calendar dates get labels across the year boundary",()=>{
+  const day="2026-12-30";
+  assert.deepEqual(["2026-12-29",day,"2026-12-31","2027-01-01","2027-01-02","2027-01-03"].map(d=>dateLabel(d,day)),
+    ["12月29日","12月30日","明天（12月31日）","后天（1月1日）","大后天（1月2日）","1月3日"]);
+});
+test("Today lists every pending one-off due tomorrow, including all-day and already-started work",()=>{
+  const tomorrow="2026-04-11";
+  const s=workspace([{...base,id:"timed",date:tomorrow,time:"08:30"},{...base,id:"all",date:tomorrow},
+    {...base,id:"routine",date:tomorrow,daily:true},{...base,id:"done",date:tomorrow},{...base,id:"later"}]);
+  s.history=[{taskId:"done",key:"done@once",occ:tomorrow,daily:false,title:"已完成的待办",category:"",finished:now}];
+  const group=taskGroups(s,"today",day,day,now).find(g=>g.title==="明日待办");
+  assert.deepEqual(group?.rows.map(row=>row.task.id),["timed","all"]);
 });
 test("24 hour view spans midnight and excludes untimed backlog",()=>{
   const s=workspace([{...base,id:"none",date:""},{...base,id:"past",date:day,time:"09:00"},

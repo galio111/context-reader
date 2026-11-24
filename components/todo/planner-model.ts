@@ -9,7 +9,14 @@ export type View = "today" | "upcoming" | "all" | "day" | "history";
 const dayMs = 86400000;
 export const isoDay = (now = Date.now()) => new Date(now + 8 * 3600000).toISOString().slice(0, 10);
 export const plusDays = (d: string, n: number) => new Date(Date.parse(d + "T12:00:00Z") + n * dayMs).toISOString().slice(0, 10);
-export const dateLabel = (d: string) => Number(d.slice(5, 7)) + "月" + Number(d.slice(-2)) + "日";
+export function relativeDayLabel(day:string,today:string) {
+  const distance=(Date.parse(day+"T00:00:00Z")-Date.parse(today+"T00:00:00Z"))/dayMs;
+  return ({1:"明天",2:"后天",3:"大后天"} as Record<number,string>)[distance] || "";
+}
+export function dateLabel(day:string,today=isoDay()) {
+  const absolute=Number(day.slice(5,7))+"月"+Number(day.slice(-2))+"日",relative=relativeDayLabel(day,today);
+  return relative ? relative+"（"+absolute+"）" : absolute;
+}
 export const occurrenceKey = (t: Task, day: string) => t.id + "@" + (t.daily ? day : "once");
 export const dueTime = (d: string, t: string) => Date.parse(d + "T" + (t || "23:59") + (t ? ":00" : ":59.999") + "+08:00");
 export const defaultUrgentColor = "#ca4e32";
@@ -142,6 +149,7 @@ export function taskGroups(state: TodoData, view: View, today: string, selected:
     else if (plusDays(task.date, -task.lead) <= today) attention.push(row);
   }
   add("已过截止", overdue, true); add("该动手了", attention, true); add("每日任务", daily, true);
+  add("明日待办",dayEntries(state.tasks,plusDays(today,1)),true);
 
   return groups;
 }
@@ -150,7 +158,7 @@ export function timing({task: t, occ}: Entry, today: string) {
   if (!t.date) return "未定日期";
   const start = plusDays(t.date, -t.lead);
   const prefix = t.lead && today >= start && today < t.date ? (today === start ? "今天开工" : "已到开工日") + " · " : "";
-  return prefix + (t.date === today ? "今天" : dateLabel(t.date)) + (t.time ? " " + t.time : " 全天") + "截止";
+  return prefix + (t.date === today ? "今天" : dateLabel(t.date,today)) + (t.time ? " " + t.time : " 全天") + "截止";
 }
 export function learnedCategory(text: string, state: TodoData) {
   if (!state.settings.learnDefaults) return null;
