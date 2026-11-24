@@ -26,6 +26,14 @@ export function urgencyLabel(task: Task, today: string, now: number) {
 export const priorityLabels = {"": "未指定", low: "低", normal: "普通", high: "高"};
 export const dailyStart = (t: Task) => t.date || t.created;
 
+export function updateCategories(state: TodoData, added: string[], removed: string[]): TodoData {
+  const deleted = new Set(removed);
+  const categories = [...new Set([...state.categories.filter(name => !deleted.has(name)), ...added])];
+  const fallback = categories.includes("未分类") ? "未分类" : "";
+  const tasks = deleted.size ? state.tasks.map(task => deleted.has(task.category) ? {...task, category:fallback} : task) : state.tasks;
+  return {...state, categories, tasks};
+}
+
 export function calendarDays(month: string) {
   const first = month.slice(0, 7) + "-01";
   const weekday = (new Date(first + "T12:00:00Z").getUTCDay() + 6) % 7;

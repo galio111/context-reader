@@ -36,15 +36,15 @@ export function InlineEditor({task, categories, save, cancel}: {task:Task;catego
     {error && <p role="alert">{error}</p>}
   </form>;
 }
-export function SettingsEditor({settings,categories,onSave,close}: {settings:Settings;categories:string[];onSave:(next:Settings,names:string[])=>Promise<void>;close:()=>void}) {
-  const [draft,set] = useState(settings), [names,setNames] = useState(categories), [category,setCategory] = useState("");
+export function SettingsEditor({settings,categories,onSave,close}: {settings:Settings;categories:string[];onSave:(next:Settings,added:string[],removed:string[])=>Promise<void>;close:()=>void}) {
+  const [draft,set] = useState(settings), [initialNames] = useState(categories), [names,setNames] = useState(categories), [category,setCategory] = useState("");
   const [error,setError] = useState(""), [saving,setSaving] = useState(false);
   const change = <K extends keyof Settings>(key:K,value:Settings[K])=>set(old=>({...old,[key]:value}));
   const add = () => {const name=category.trim(); if(name && !names.includes(name)) setNames(old=>[...old,name]);setCategory("")};
   async function submit(e:FormEvent) {
     e.preventDefault(); if(saving)return;setSaving(true);setError("");
     const text=category.trim(); const newNames=text && !names.includes(text)?[...names,text]:names;
-    try {await onSave({...draft,emailAddress:draft.emailAddress.trim()},newNames);close()}
+    try {await onSave({...draft,emailAddress:draft.emailAddress.trim()},newNames.filter(name=>!initialNames.includes(name)),initialNames.filter(name=>!newNames.includes(name)));close()}
     catch(e){setError((e as Error).message);setSaving(false)}
   }
   return <EditorDialog close={()=>{if(!saving)close()}} title="待办设置"><form onSubmit={submit}>
@@ -63,7 +63,11 @@ export function SettingsEditor({settings,categories,onSave,close}: {settings:Set
       <label className="td-check-label"><input type="checkbox" checked={draft.learnDefaults} onChange={e=>change("learnDefaults",e.target.checked)}/>参考我的历史待办，建议分类和常用默认值</label>
       <label>新建每日任务时默认<select value={draft.defaultMissed} onChange={e=>change("defaultMissed",e.target.value as Settings["defaultMissed"])}><option value="skip">漏做自动跳过</option><option value="carry">漏做留到次日补办</option></select></label>
     </fieldset>
-    <fieldset><legend>我的分类</legend><div className="td-tags">{names.map(name=><span key={name}>{name}</span>)}</div>
+    <fieldset><legend>我的分类</legend><div className="td-tags">{names.map(name=><span key={name}>{name}<button type="button" aria-label={"删除分类「"+name+"」"} disabled={saving} onClick={()=>setNames(list=>list.filter(n=>n!==name))}>×</button></span>)}</div>
+      {initialNames.some(name=>!names.includes(name)) && <div className="td-removed-categories">
+        <p>保存后，这些分类下的待办将移到「未分类」。</p>
+        {initialNames.filter(name=>!names.includes(name)).map(name=><button type="button" key={name} disabled={saving} onClick={()=>setNames(list=>[...list,name])}>撤销删除「{name}」</button>)}
+      </div>}
       <div className="td-actions"><input aria-label="新分类名称" placeholder="新分类名称" maxLength={32} value={category} onChange={e=>setCategory(e.target.value)} onKeyDown={e=>{if(e.key==="Enter" && !e.nativeEvent.isComposing){e.preventDefault();add()}}}/><button type="button" onClick={add} disabled={!category.trim()}>添加</button></div>
     </fieldset>
     {error && <p role="alert">{error}</p>}

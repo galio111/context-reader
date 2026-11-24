@@ -1,7 +1,7 @@
 "use client";
 import {useCallback,useEffect,useMemo,useRef,useState,type CSSProperties} from "react";
 import Link from "next/link";
-import {calendarDays,defaultUrgentColor,urgencyLabel,dateLabel,dayEntries,isoDay,learnedCategory,nextMonth,occurrenceKey,plusDays,priorityLabels,taskGroups,timing,type Completed,type Entry,type Settings,type Task,type View} from "./planner-model";
+import {calendarDays,defaultUrgentColor,urgencyLabel,updateCategories,dateLabel,dayEntries,isoDay,learnedCategory,nextMonth,occurrenceKey,plusDays,priorityLabels,taskGroups,timing,type Completed,type Entry,type Settings,type Task,type View} from "./planner-model";
 import {InlineEditor,SettingsEditor} from "./TodoEditors";
 import {useTodoStore} from "./useTodoStore";
 import "./workspace.css";
@@ -30,15 +30,15 @@ const nav: [View,string][]=[["today","今天"],["upcoming","未来 24 小时"],[
 const labels = Object.fromEntries(nav);
 const clock = new Intl.DateTimeFormat("zh-CN",{hour:"2-digit",minute:"2-digit",hourCycle:"h23",timeZone:"Asia/Shanghai"});
 type Notice={text:string; undo?:string};
-function CategoryAdd({category,ready}:{category:string;ready:boolean}) {
+function ScopedAdd({category,date,ready}:{category?:string;date?:string;ready:boolean}) {
   const [open,setOpen]=useState(false),[draft,setDraft]=useState("");
   const addButton=useRef<HTMLButtonElement>(null);
-  const name=category || "未分类";
+  const name=date ? dateLabel(date) : category || "未分类";
   return <><button type="button" ref={addButton} className="td-group-add" aria-label={"在"+name+"添加待办"} aria-expanded={open} onClick={()=>setOpen(!open)} disabled={!ready}>＋</button>
     {open && <form className="td-category-input" onSubmit={e=>{
       e.preventDefault();
       if (!draft.trim()) return;
-      document.getElementById("quick-form")?.dispatchEvent(new CustomEvent("todo-category-add",{detail:{text:draft,category,returnFocus:()=>addButton.current,onSaved:()=>{setDraft("");setOpen(false)}}}));
+      document.getElementById("quick-form")?.dispatchEvent(new CustomEvent("todo-scoped-add",{detail:{text:draft,category,date,returnFocus:()=>addButton.current,onSaved:()=>{setDraft("");setOpen(false)}}}));
     }}><input autoFocus aria-label={name+"的新待办"} placeholder="输入待办…" maxLength={4000} value={draft} onChange={e=>setDraft(e.target.value)} onKeyDown={e=>{if(e.key==="Enter" && (e.nativeEvent.isComposing || e.nativeEvent.keyCode===229))e.preventDefault();if(e.key==="Escape"){setOpen(false);addButton.current?.focus()}}}/><button type="submit" disabled={!draft.trim()}>记下</button></form>}
   </>;
 }
@@ -48,7 +48,8 @@ export default function PrivateTodoWorkspace() {
   const [now,setNow]=useState(Date.now);
   const today=isoDay(now);
   const [view,setView]=useState<View>("today"),[selected,setSelected]=useState(today),[month,setMonth]=useState(today.slice(0,7));
-  const [categoryFilter,setCategoryFilter]=useState("");
+  const [chosenCategory,setCategoryFilter]=useState("");
+  const categoryFilter=state?.categories.includes(chosenCategory) ? chosenCategory : "";
   useEffect(()=>{if(new URLSearchParams(location.search).get("view")==="all") setView("all")},[]);
   const [hoverDay,setHoverDay]=useState(""),[editing,setEditing]=useState<{key:string;original:Task}|null>(null);
   const [settingsBase,setSettingsBase]=useState<Settings|null>(null),[notice,setNotice]=useState<Notice|null>(null);
@@ -68,7 +69,7 @@ export default function PrivateTodoWorkspace() {
         const added:Task[]=items.map(item=>({id:item.id || crypto.randomUUID(),title:(item.title||"").trim(),category:item.category||"",date:item.date||"",time:item.time||"",lead:item.lead||0,daily:!!item.daily,missed:item.missed||current.current?.state.settings.defaultMissed||"skip",priority:item.priority||"",color:item.color,created:isoDay()}));
         await mutate(s=>{
           const fresh=added.filter(t=>!s.tasks.some(old=>old.id===t.id));
-          return fresh.length?{...s,tasks:[...s.tasks,...fresh],categories:[...new Set([...s.categories,...fresh.map(t=>t.category).filter(Boolean)])]}:s;
+          return fresh.length?{...s,tasks:[...s.tasks,...fresh.map(t=>t.category && !s.categories.includes(t.category) ? {...t,category:""} : t)]}:s;
         });
         setNotice({text:"已记下 "+added.length+" 项待办"});
       },
@@ -81,7 +82,7 @@ export default function PrivateTodoWorkspace() {
     window.todoApp=api;
     void (async()=>{
       try {
-        await captureScript("/todo-ui/capture-parser.js?v=1124a");await captureScript("/todo-ui/capture-v2.js?v=1124c");
+        await captureScript("/todo-ui/capture-parser.js?v=1124a");await captureScript("/todo-ui/capture-v2.js?v=1124d");
         if(active){if(!window.PrivateTodoCapture)throw Error();window.PrivateTodoCapture.mount();setCaptureReady(true)}
       }catch{if(active)setCaptureIssue("录入工具加载失败，请刷新后重试。")}
     })();
@@ -136,7 +137,7 @@ export default function PrivateTodoWorkspace() {
       await mutate(s=>{
         const original=s.tasks.find(t=>t.id===task.id);
         if(!original||[...new Set([...Object.keys(editing.original),...Object.keys(original)])].some(k=>JSON.stringify(original[k as keyof Task])!==JSON.stringify(editing.original[k as keyof Task])))throw Error("这项待办在其他设备已修改，取消编辑后可查看最新内容。");
-        return {...s,tasks:s.tasks.map(t=>t.id===task.id?next:t)};
+        return {...s,tasks:s.tasks.map(t=>t.id===task.id?{...next,category:s.categories.includes(next.category)?next.category:""}:t)};
       });setEditing(null);setNotice({text:"已保存修改"});
     }}/>;
     const done=settling.includes(key);
@@ -161,11 +162,11 @@ export default function PrivateTodoWorkspace() {
         <button className="td-settings" onClick={()=>setSettingsBase(state!.settings)}>待办设置</button>
       </aside>
       <section className="td-agenda" ref={agenda}>
-        <div className="td-heading"><h1>{view==="day"?dateLabel(selected)+"的待办":labels[view]}</h1>{view==="today"&&<span>{dateLabel(today)} · {"周"+"日一二三四五六"[new Date(today+"T12:00:00Z").getUTCDay()]}</span>}</div>
+        <div className="td-heading"><h1>{view==="day"?dateLabel(selected)+"的待办":labels[view]}</h1>{view==="day" && <ScopedAdd key={selected} date={selected} ready={captureReady}/>}{view==="today"&&<span>{dateLabel(today)} · {"周"+"日一二三四五六"[new Date(today+"T12:00:00Z").getUTCDay()]}</span>}</div>
         {view==="all" && <label className="td-filter">分类<select value={categoryFilter} onChange={e=>{setCategoryFilter(e.target.value);setEditing(null)}}><option value="">所有分类</option>{state!.categories.map(c=><option key={c}>{c}</option>)}</select></label>}
         {view==="upcoming" && <p className="td-caption">接下来 24 小时内截止，全天事项按当天结束计算。</p>}
         {view==="history"?historyDates.size?[...historyDates].map(([day,records])=><section key={day} className="td-group"><h2>{day}</h2>{renderHistory(records)}</section>):<p className="td-empty">勾选完成的待办会按日期留在这里。</p>:
-          groups.length?groups.map(group=><section key={group.category===undefined ? group.title : "category:"+group.category} className="td-group"><div className="td-group-head"><h2>{group.title}</h2>{group.category!==undefined && <CategoryAdd key={group.category} category={group.category} ready={captureReady}/>}</div>{group.rows.map(renderRow)}</section>):
+          groups.length?groups.map(group=><section key={group.category===undefined ? group.title : "category:"+group.category} className="td-group"><div className="td-group-head"><h2>{group.title}</h2>{group.category!==undefined && <ScopedAdd key={group.category} category={group.category} ready={captureReady}/>}</div>{group.rows.map(renderRow)}</section>):
           <p className="td-empty">{view==="today"?"今天还没有要开工、到期或例行的待办。":view==="day"?"这一天没有待完成的事项。":"这个范围内没有待完成的事项。"}</p>}
         {view==="today" && <>
           {nextDue && <button className="td-next" onClick={()=>jump(nextDue.date)}><span>下一项截止 · {dateLabel(nextDue.date)}{nextDue.time&&" "+nextDue.time}</span><b>{nextDue.title}</b></button>}
@@ -193,10 +194,11 @@ export default function PrivateTodoWorkspace() {
       </section>
       <button className="td-mobile-add" onClick={()=>{input.current?.scrollIntoView({block:"center"});input.current?.focus()}}>＋ 随手记</button>
       <dialog id="capture-dialog" aria-label="确认待办"/>
-      {settingsBase && <SettingsEditor settings={settingsBase} categories={state!.categories} close={()=>setSettingsBase(null)} onSave={async(next,names)=>{
+      {settingsBase && <SettingsEditor settings={settingsBase} categories={state!.categories} close={()=>setSettingsBase(null)} onSave={async(next,added,removed)=>{
         await mutate(s=>{
           if([...new Set([...Object.keys(settingsBase),...Object.keys(s.settings)])].some(k=>s.settings[k as keyof Settings]!==settingsBase[k as keyof Settings]))throw Error("设置已在另一处更新，请重新打开设置确认。");
-          return {...s,settings:next,categories:[...new Set([...s.categories,...names])]};});
+          return {...updateCategories(s,added,removed),settings:next};});
+        if(removed.includes(chosenCategory))setCategoryFilter("");
         setNotice({text:"设置已保存"});
       }}/>}
     </div>}

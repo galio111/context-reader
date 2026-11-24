@@ -105,6 +105,10 @@
 .td-dialog fieldset legend{font-size:14px;color:var(--td-blue);font-weight:650}
 .td-dialog form p{color:var(--td-sub);font-size:12px;margin:6px 0}
 .td-check-label{display:flex;align-items:baseline;gap:7px;font-size:14px}
+.td-tags span{display:inline-flex;align-items:center;gap:3px}
+.td-tags button{min-width:32px;min-height:32px;font-size:18px;line-height:1;border-radius:4px}
+.td-tags button:hover{background:var(--td-paper)}
+.td-removed-categories button{margin:4px 8px 4px 0;color:var(--td-blue);text-decoration:underline}
 .td-tags{display:flex;flex-wrap:wrap;gap:4px;font-size:12px}
 .td-notice{position:fixed;z-index:50;left:50%;bottom:21px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;width:max-content;max-width:92vw;padding:10px 16px;background:#213c50;color:white;border-radius:8px;font-size:14px;overflow-wrap:anywhere}
 .td-notice button{text-decoration:underline;white-space:nowrap}

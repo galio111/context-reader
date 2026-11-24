@@ -1,6 +1,6 @@
 import {strict as assert} from "node:assert";
 import {test} from "node:test";
-import {calendarDays,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
+import {calendarDays,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
 
 const day="2026-04-10";
 const base:Task={id:"one",title:"整理一页草稿",category:"",date:"2026-04-13",time:"",lead:3,daily:false,missed:"skip",priority:"",created:day};
@@ -39,6 +39,16 @@ test("urgency respects start dates, upcoming deadlines, recurring dates and expl
   assert.equal(urgencyLabel({...base,date:"2026-04-11",time:"13:00"},day,now),"24 小时内到期");
   assert.equal(urgencyLabel({...base,daily:true,date:day},day,now),"");
   assert.equal(urgencyLabel({...base,priority:"high",date:""},day,now),"高优先级");
+});
+test("removing a category retains recurring and one-off tasks, historic completions and unrelated concurrent categories",()=>{
+  const s=workspace([{...base,category:"学习"},{...base,id:"daily",daily:true,category:"学习"},{...base,id:"other",category:"生活"}]);
+  s.categories=["学习","生活","另一端新增"];
+  s.history=[{key:"one@once",taskId:"one",occ:day,daily:false,title:base.title,category:"学习",finished:now}];
+  const changed=updateCategories(s,["科研"],["学习"]);
+  assert.deepEqual(changed.categories,["生活","另一端新增","科研"]);
+  assert.deepEqual(changed.tasks,s.tasks.map(t=>({...t,category:t.category==="学习"?"":t.category})));
+  assert.deepEqual(changed.history,s.history);
+  assert.deepEqual(updateCategories(changed,["科研"],["学习"]),changed);
 });
 test("24 hour view spans midnight and excludes untimed backlog",()=>{
   const s=workspace([{...base,id:"none",date:""},{...base,id:"past",date:day,time:"09:00"},
