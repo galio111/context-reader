@@ -2,6 +2,10 @@
 
 ## Current production release
 
+Accepted `20261124T205937`, parent `20261122T212344`, source `a5c0ffb29d0fc13ae4ac2357a1e409084628612b`. The owner-only planner is available at `/todo`. Public identity, private cache controls, anonymous denial and the normal login entry were verified. [Release evidence](evidence/private-todo-20261124.json)
+
+## Previous accepted extension lookup release
+
 Accepted `20261122T212344`, parent `20261122T112204`, source `de7adfd8f0e85744e30e1f13fe42365d2afed6c6`. Chrome extension 1.3.1 preserves punctuation in English terms such as `forward P/E`. The public ZIP, live contextual lookup and dictionary, saved words, reading core, Admin, backup and rollback images passed verification. See the [acceptance record](evidence/extension-symbols-20261122.json).
 
 ## Previous accepted mobile calendar and study rewards release

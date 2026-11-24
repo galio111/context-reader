@@ -1,0 +1,54 @@
+{
+  "releaseId": "20261124T205937",
+  "parentReleaseId": "20261122T212344",
+  "sourceRevision": "a5c0ffb29d0fc13ae4ac2357a1e409084628612b",
+  "site": "https://context-reader.com/todo",
+  "verifiedOn": "2026-11-24",
+  "local": {
+    "productionBuild": true,
+    "architectureTestsPassed": 178,
+    "criticalTestsPassed": 90,
+    "todoTestsPassed": 12,
+    "releaseContracts": true,
+    "sourceCI": "https://github.com/galio111/context-reader/actions/runs/45398954353",
+    "browser": {
+      "desktopWidth": 1440,
+      "mobileWidth": 390,
+      "isolatedWorkspace": true,
+      "covered": [
+        "capture and correction",
+        "inline edit",
+        "daily carry",
+        "check and undo",
+        "calendar high-priority ordering and clearing",
+        "settings persistence"
+      ]
+    }
+  },
+  "production": {
+    "guestLoginPage": 200,
+    "guestWorkspace": 401,
+    "guestWorkspaceHead": 401,
+    "guestParse": 401,
+    "unauthenticatedCron": 401,
+    "privateCache": "private, no-store",
+    "home": 200,
+    "accountSession": 200,
+    "browserConsoleErrors": 0,
+    "ownerBindingAndPrivateWorkspaceVerified": true,
+    "providerSyntheticParse": true,
+    "reminderTimerEnabled": true,
+    "successfulTimerTicks": 2,
+    "smtpNonDeliveryPreflight": true,
+    "realEmailTestSent": false,
+    "persistentServicesUnchanged": 5,
+    "currentAndParentImagesAvailable": true,
+    "freshLogicalBackupIncludesWorkspaceAndDelivery": true,
+    "isolatedRestorePassed": true
+  },
+  "pending": [
+    "Owner-signed-in hands-on acceptance and physical phone",
+    "Actual inbox delivery after the owner enables it",
+    "No production rollback performed"
+  ]
+}
