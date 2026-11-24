@@ -1,7 +1,7 @@
 "use client";
-import {useCallback,useEffect,useMemo,useRef,useState} from "react";
+import {useCallback,useEffect,useMemo,useRef,useState,type CSSProperties} from "react";
 import Link from "next/link";
-import {calendarDays,dateLabel,dayEntries,isoDay,learnedCategory,nextMonth,occurrenceKey,plusDays,priorityLabels,taskGroups,timing,type Completed,type Entry,type Settings,type Task,type View} from "./planner-model";
+import {calendarDays,defaultUrgentColor,urgencyLabel,dateLabel,dayEntries,isoDay,learnedCategory,nextMonth,occurrenceKey,plusDays,priorityLabels,taskGroups,timing,type Completed,type Entry,type Settings,type Task,type View} from "./planner-model";
 import {InlineEditor,SettingsEditor} from "./TodoEditors";
 import {useTodoStore} from "./useTodoStore";
 import "./workspace.css";
@@ -65,7 +65,7 @@ export default function PrivateTodoWorkspace() {
       suggestCategory:text=>current.current?learnedCategory(text,current.current.state):null,
       addCategory:async(name)=>{const c=name.trim();if(!c)return;await mutate(s=>s.categories.includes(c)?s:{...s,categories:[...s.categories,c]})},
       saveTasks:async(items)=>{
-        const added:Task[]=items.map(item=>({id:item.id || crypto.randomUUID(),title:(item.title||"").trim(),category:item.category||"",date:item.date||"",time:item.time||"",lead:item.lead||0,daily:!!item.daily,missed:item.missed||current.current?.state.settings.defaultMissed||"skip",priority:item.priority||"",created:isoDay()}));
+        const added:Task[]=items.map(item=>({id:item.id || crypto.randomUUID(),title:(item.title||"").trim(),category:item.category||"",date:item.date||"",time:item.time||"",lead:item.lead||0,daily:!!item.daily,missed:item.missed||current.current?.state.settings.defaultMissed||"skip",priority:item.priority||"",color:item.color,created:isoDay()}));
         await mutate(s=>{
           const fresh=added.filter(t=>!s.tasks.some(old=>old.id===t.id));
           return fresh.length?{...s,tasks:[...s.tasks,...fresh],categories:[...new Set([...s.categories,...fresh.map(t=>t.category).filter(Boolean)])]}:s;
@@ -81,7 +81,7 @@ export default function PrivateTodoWorkspace() {
     window.todoApp=api;
     void (async()=>{
       try {
-        await captureScript("/todo-ui/capture-parser.js?v=1124a");await captureScript("/todo-ui/capture-v2.js?v=1124b");
+        await captureScript("/todo-ui/capture-parser.js?v=1124a");await captureScript("/todo-ui/capture-v2.js?v=1124c");
         if(active){if(!window.PrivateTodoCapture)throw Error();window.PrivateTodoCapture.mount();setCaptureReady(true)}
       }catch{if(active)setCaptureIssue("录入工具加载失败，请刷新后重试。")}
     })();
@@ -135,17 +135,19 @@ export default function PrivateTodoWorkspace() {
     if(editing?.key===key) return <InlineEditor key={key} task={editing.original} categories={state!.categories} cancel={()=>setEditing(null)} save={async(next)=>{
       await mutate(s=>{
         const original=s.tasks.find(t=>t.id===task.id);
-        if(!original||Object.keys(editing.original).some(k=>JSON.stringify(original[k as keyof Task])!==JSON.stringify(editing.original[k as keyof Task])))throw Error("这项待办在其他设备已修改，取消编辑后可查看最新内容。");
+        if(!original||[...new Set([...Object.keys(editing.original),...Object.keys(original)])].some(k=>JSON.stringify(original[k as keyof Task])!==JSON.stringify(editing.original[k as keyof Task])))throw Error("这项待办在其他设备已修改，取消编辑后可查看最新内容。");
         return {...s,tasks:s.tasks.map(t=>t.id===task.id?next:t)};
       });setEditing(null);setNotice({text:"已保存修改"});
     }}/>;
     const done=settling.includes(key);
-    return <div key={key} className={"td-row"+(done?" td-checked":"")}>
+    const urgent=urgencyLabel(task,today,now);
+    const color=done ? undefined : task.color || (urgent ? state?.settings.urgentColor || defaultUrgentColor : undefined);
+    return <div key={key} style={color ? {"--td-mark":color} as CSSProperties : undefined} className={"td-row"+(color?" td-marked":"")+(done?" td-checked":"")}>
       <button type="button" className="td-tick" role="checkbox" aria-label={"完成「"+task.title+"」"} aria-checked={done} disabled={done||(task.daily&&occ>today)} onClick={()=>void complete(entry)}><svg viewBox="0 0 20 20" aria-hidden><path d="M4 10l4 4 8-9" pathLength="1"/></svg></button>
-      <div><strong>{task.title}</strong><small>{task.category && <span>{task.category}</span>}{timing(entry,today)}{task.priority && " · "+priorityLabels[task.priority]+"优先级"}</small></div>
+      <div><strong>{task.title}</strong><small>{urgent && <b className="td-urgency">{urgent}</b>}{task.category && <span>{task.category}</span>}{timing(entry,today)}{task.priority && urgent!=="高优先级" && " · "+priorityLabels[task.priority]+"优先级"}</small></div>
       <button className="td-link" aria-label={"编辑「"+task.title+"」"} onClick={()=>setEditing({key,original:task})}>编辑</button></div>;
   }
-  return <main className="td-app">
+  return <main className="td-app" style={{"--td-urgent":state?.settings.urgentColor || defaultUrgentColor} as CSSProperties}>
     <header className="td-top"><div><span className="td-brand">Context Reader</span><span className="td-separator">/</span><b>私人待办</b></div><Link href="/" prefetch={false}>返回阅读站 ↗</Link></header>
     {error && <p role="alert" className="td-error">{error} <button onClick={()=>snapshot?void refresh():location.reload()}>重新连接</button></p>}
     {!ready ? <p className="td-loading" role="status">{error?"暂时无法打开清单。":"正在打开你的清单…"}</p> : <div className="td-grid" data-view={view}>
@@ -179,7 +181,8 @@ export default function PrivateTodoWorkspace() {
           return <button key={d} className={"td-cell "+(d===today?"td-cell-today ":"")+(d===selected&&view==="day"?"td-selected ":"")+(d.slice(0,7)!==month?"td-other ":"")+(highCount?"td-has-high":"")} onClick={()=>jump(d)} onFocus={()=>setHoverDay(d)} onMouseEnter={()=>setHoverDay(d)} aria-label={dateLabel(d)+"，"+rows.length+"项待办"+(highCount?"，其中"+highCount+"项高优先级":"")}>
             <b>{Number(d.slice(-2))}</b>{rows.slice(0,2).map(({task})=>{
               const done=doneKeys.has(occurrenceKey(task,d)),high=task.priority==="high"&&!done;
-              return <span className={done?"td-cell-done":high?"td-priority-high":""} key={task.id} title={[task.title,task.time||"全天"].join(" · ")}>{high?"↑ ":""}{task.title}</span>
+              const mark=done ? undefined : task.color || (urgencyLabel(task,today,now) ? "var(--td-urgent)" : undefined);
+              return <span style={mark ? {"--td-mark":mark} as CSSProperties : undefined} data-marked={mark ? true : undefined} className={done?"td-cell-done":high?"td-priority-high":""} key={task.id} title={[task.title,task.time||"全天"].join(" · ")}>{high?"↑ ":""}{task.title}</span>
             })}{rows.length>2 && <i>+{rows.length-2}</i>}</button>;
         })}</div>
         {monthHasHigh && <p className="td-legend"><span className="td-priority-high">↑ 高优先级</span></p>}
@@ -192,7 +195,7 @@ export default function PrivateTodoWorkspace() {
       <dialog id="capture-dialog" aria-label="确认待办"/>
       {settingsBase && <SettingsEditor settings={settingsBase} categories={state!.categories} close={()=>setSettingsBase(null)} onSave={async(next,names)=>{
         await mutate(s=>{
-          if(Object.keys(settingsBase).some(k=>s.settings[k as keyof Settings]!==settingsBase[k as keyof Settings]))throw Error("设置已在另一处更新，请重新打开设置确认。");
+          if([...new Set([...Object.keys(settingsBase),...Object.keys(s.settings)])].some(k=>s.settings[k as keyof Settings]!==settingsBase[k as keyof Settings]))throw Error("设置已在另一处更新，请重新打开设置确认。");
           return {...s,settings:next,categories:[...new Set([...s.categories,...names])]};});
         setNotice({text:"设置已保存"});
       }}/>}

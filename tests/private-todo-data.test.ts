@@ -18,7 +18,9 @@ test("private todo writes validate real dates, unique occurrences and a single r
   assert.ok(isPrivateTodoState({ ...state, tasks: [task], history: [completion] }));
   assert.ok(isPrivateTodoState({ ...state, history: [{ ...completion, importedWithoutCompletionDate: true }] }));
   assert.equal(isPrivateTodoState({ ...state, history: [{ ...completion, importedWithoutCompletionDate: "yes" }] }), false);
-  for (const bad of [{ ...task, date: "2026-02-29" }, { ...task, time: "25:00" }, { ...task, missed: "unknown" },
+  assert.ok(isPrivateTodoState({...state,tasks:[{...task,color:"#b17ad2"}],settings:{...state.settings,urgentColor:"#ce4812"}}));
+  assert.equal(isPrivateTodoState({...state,settings:{...state.settings,urgentColor:"transparent"}}),false);
+  for (const bad of [{...task,color:"invalid"}, { ...task, date: "2026-02-29" }, { ...task, time: "25:00" }, { ...task, missed: "unknown" },
     { ...task, skippedDates: ["2028-02-30"] }]) assert.equal(isPrivateTodoState({ ...state, tasks: [bad] }), false);
   assert.equal(isPrivateTodoState({ ...state, history: [completion, completion] }), false);
   assert.equal(isPrivateTodoState({ ...state, history: [{ ...completion, key: "t@once" }] }), false);

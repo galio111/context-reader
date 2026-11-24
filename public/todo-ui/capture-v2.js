@@ -235,6 +235,11 @@
       }));
       if (item.priorityReason) priorityField.append(n("small", "tc-hint", item.priorityReason));
       options.append(priorityField);
+      const color = n("input"); color.type = "color"; color.value = item.color || settings().urgentColor || "#ca4e32";
+      color.addEventListener("input", () => { dirty(); item.color = color.value; });
+      const colorField = labelled("事项标色", color);
+      const resetColor = btn("tc-link", "自动标色", () => { dirty(); delete item.color; paint(); });
+      options.append(colorField, resetColor);
       editor.append(options);
 
       const details = n("details", "tc-details"); details.open = item.expanded || item.daily;
@@ -288,7 +293,7 @@
       editor.inert = true; itemNav.inert = true;
       const records = items.filter((item) => item.chosen).map((item) => ({
         id: item.id, title: item.title.trim(), category: item.category, date: item.date, time: item.time, lead: item.lead,
-        daily: item.daily, missed: item.missed, priority: item.priority,
+        daily: item.daily, missed: item.missed, priority: item.priority, color:item.color,
       }));
       const ticket = revision;
       try {

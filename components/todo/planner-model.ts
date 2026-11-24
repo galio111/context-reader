@@ -12,6 +12,17 @@ export const plusDays = (d: string, n: number) => new Date(Date.parse(d + "T12:0
 export const dateLabel = (d: string) => Number(d.slice(5, 7)) + "月" + Number(d.slice(-2)) + "日";
 export const occurrenceKey = (t: Task, day: string) => t.id + "@" + (t.daily ? day : "once");
 export const dueTime = (d: string, t: string) => Date.parse(d + "T" + (t || "23:59") + (t ? ":00" : ":59.999") + "+08:00");
+export const defaultUrgentColor = "#ca4e32";
+export function urgencyLabel(task: Task, today: string, now: number) {
+  if (!task.daily && task.date) {
+    const due = dueTime(task.date,task.time);
+    if (due < now) return "已过截止";
+    if (task.date === today) return "今天到期";
+    if (due <= now + dayMs) return "24 小时内到期";
+    if (task.lead > 0 && plusDays(task.date,-task.lead) <= today) return "已到开工日";
+  }
+  return task.priority === "high" ? "高优先级" : "";
+}
 export const priorityLabels = {"": "未指定", low: "低", normal: "普通", high: "高"};
 export const dailyStart = (t: Task) => t.date || t.created;
 

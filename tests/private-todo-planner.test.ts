@@ -1,6 +1,6 @@
 import {strict as assert} from "node:assert";
 import {test} from "node:test";
-import {calendarDays,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
+import {calendarDays,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
 
 const day="2026-04-10";
 const base:Task={id:"one",title:"整理一页草稿",category:"",date:"2026-04-13",time:"",lead:3,daily:false,missed:"skip",priority:"",created:day};
@@ -31,6 +31,14 @@ test("daily tasks only appear in Today and categories can accept their first tas
   }
   assert.deepEqual(taskGroups(s,"all",day,day,now).map(g=>[g.title,g.rows.map(e=>e.task.id)]),
     [["Work",["regular"]],["Empty",[]],["Daily",[]],["未分类",["unscheduled"]]]);
+});
+test("urgency respects start dates, upcoming deadlines, recurring dates and explicit priority",()=>{
+  assert.equal(urgencyLabel(base,day,now),"已到开工日");
+  assert.equal(urgencyLabel({...base,lead:0},day,now),"");
+  assert.equal(urgencyLabel({...base,date:day,time:"09:00"},day,now),"已过截止");
+  assert.equal(urgencyLabel({...base,date:"2026-04-11",time:"13:00"},day,now),"24 小时内到期");
+  assert.equal(urgencyLabel({...base,daily:true,date:day},day,now),"");
+  assert.equal(urgencyLabel({...base,priority:"high",date:""},day,now),"高优先级");
 });
 test("24 hour view spans midnight and excludes untimed backlog",()=>{
   const s=workspace([{...base,id:"none",date:""},{...base,id:"past",date:day,time:"09:00"},

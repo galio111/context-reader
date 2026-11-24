@@ -1,6 +1,6 @@
 "use client";
 import {useEffect, useRef, useState, type FormEvent, type ReactNode} from "react";
-import {priorityLabels, type Task, type Settings} from "./planner-model";
+import {defaultUrgentColor,priorityLabels, type Task, type Settings} from "./planner-model";
 
 export function EditorDialog({title, close, children}: {title:string;close:()=>void;children:ReactNode}) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -26,6 +26,8 @@ export function InlineEditor({task, categories, save, cancel}: {task:Task;catego
       <label>具体时间<input type="time" value={draft.time} disabled={!draft.date && !draft.daily} onChange={e=>update("time",e.target.value)}/></label>
       <label>分类<select value={draft.category} onChange={e=>update("category",e.target.value)}><option value="">未分类</option>{categories.map(c=><option key={c}>{c}</option>)}</select></label>
       <label>优先级<select value={draft.priority} onChange={e=>update("priority",e.target.value as Task["priority"])}>{Object.entries(priorityLabels).map(([value,label])=><option key={value} value={value}>{label}</option>)}</select></label>
+      <div><label>事项标色<input type="color" value={draft.color || defaultUrgentColor} onChange={e=>update("color",e.target.value)}/></label>
+        {draft.color && <button type="button" className="td-link" onClick={()=>update("color",undefined)}>恢复自动标色</button>}</div>
       {!draft.daily && draft.date && <label>提前几天开工<input type="number" min={0} max={365} value={draft.lead} onChange={e=>update("lead",Number(e.target.value))}/></label>}
       <label>重复<select value={draft.daily?"daily":"once"} onChange={e=>update("daily",e.target.value==="daily")}><option value="once">一次性</option><option value="daily">每天</option></select></label>
       {draft.daily && <label>当天漏做<select value={draft.missed} onChange={e=>update("missed",e.target.value as Task["missed"])}><option value="skip">次日跳过</option><option value="carry">保留待补</option></select></label>}
@@ -52,6 +54,10 @@ export function SettingsEditor({settings,categories,onSave,close}: {settings:Set
       <label>收件邮箱<input type="email" autoComplete="email" required={draft.emailEnabled} value={draft.emailAddress} onChange={e=>change("emailAddress",e.target.value)}/></label>
       <div className="td-fields"><label>有时刻的事项提前几分钟<input type="number" min={0} max={10080} required value={draft.remindMinutes} onChange={e=>change("remindMinutes",Number(e.target.value))}/></label>
       <label>全天事项当天几点发信<input type="time" required value={draft.allDayTime} onChange={e=>change("allDayTime",e.target.value)}/></label></div>
+    </fieldset>
+    <fieldset><legend>显示颜色</legend>
+      <label>紧急事项颜色<input type="color" value={draft.urgentColor || defaultUrgentColor} onChange={e=>change("urgentColor",e.target.value)}/></label>
+      <p>高优先级、已到开工日、临近或超过截止时间的事项自动标色。</p>
     </fieldset>
     <fieldset><legend>录入习惯</legend>
       <label className="td-check-label"><input type="checkbox" checked={draft.learnDefaults} onChange={e=>change("learnDefaults",e.target.checked)}/>参考我的历史待办，建议分类和常用默认值</label>

@@ -8,6 +8,7 @@ export type TodoTask = {
   daily: boolean;
   missed: "skip" | "carry";
   priority: "" | "high" | "normal" | "low";
+  color?: string;
   created: string;
   skippedDates?: string[];
 };
@@ -35,6 +36,7 @@ export type PrivateTodoState = {
     emailAddress: string;
     remindMinutes: number;
     allDayTime: string;
+    urgentColor?: string;
   };
 };
 
@@ -47,6 +49,7 @@ const text = (value: unknown, max: number, empty = false): value is string =>
 const integer = (n: unknown, min: number, max: number): n is number =>
   typeof n === "number" && Number.isSafeInteger(n) && n >= min && n <= max;
 const time = (value: unknown) => typeof value === "string" && /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(value);
+const optionalColor = (value: unknown) => value === undefined || (typeof value === "string" && /^#[a-f0-9]{6}$/i.test(value));
 const unique = (values: unknown[]) => new Set(values).size === values.length;
 const missed = (value: unknown) => value === "skip" || value === "carry";
 const date = (value: unknown): value is string => {
@@ -61,7 +64,7 @@ function task(value: unknown): value is TodoTask {
     && (value.date === "" || date(value.date)) && (value.time === "" || (time(value.time) && date(value.date)))
     && integer(value.lead, 0, 3650) && typeof value.daily === "boolean" && missed(value.missed)
     && ["", "high", "normal", "low"].includes(String(value.priority)) && typeof value.priority === "string"
-    && date(value.created) && (value.skippedDates === undefined || (Array.isArray(value.skippedDates)
+    && optionalColor(value.color) && date(value.created) && (value.skippedDates === undefined || (Array.isArray(value.skippedDates)
       && value.skippedDates.every(date) && unique(value.skippedDates)));
 }
 
@@ -81,7 +84,7 @@ export function isPrivateTodoState(value: unknown): value is PrivateTodoState {
     || !Array.isArray(value.history) || !value.history.every(completion) || !unique(value.history.map(h => h.key))) return false;
   const s = value.settings;
   if (!object(s) || typeof s.learnDefaults !== "boolean" || !missed(s.defaultMissed) || typeof s.emailEnabled !== "boolean"
-    || !text(s.emailAddress, 254, true) || !integer(s.remindMinutes, 0, 525600) || !time(s.allDayTime)) return false;
+    || !text(s.emailAddress, 254, true) || !integer(s.remindMinutes, 0, 525600) || !optionalColor(s.urgentColor) || !time(s.allDayTime)) return false;
   if (!s.emailAddress) return !s.emailEnabled;
   // A single mailbox only. SMTP may otherwise interpret commas or angle brackets as a list.
   return /^[^\s@,;<>:"()\\\[\]]+@(?:[a-z\d-]+\.)+[a-z\d-]+$/i.test(s.emailAddress)
