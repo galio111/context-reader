@@ -1,0 +1,45 @@
+{
+  "release": "20261125T171957",
+  "parent": "20261125T171335",
+  "source": "aae606aecae7056b5bd4adee03122af465448f6b",
+  "site": "https://context-reader.com/todo",
+  "local": {
+    "productionBuild": true,
+    "plannerAndProviderTests": 23,
+    "critical": 90,
+    "architecture": 178,
+    "contracts": true,
+    "tested": [
+      "date and relative label alignment at 1440, 390 and 320 px",
+      "all six same-day items displayed",
+      "full date preview",
+      "color depth without bars, dots or arrows"
+    ]
+  },
+  "production": {
+    "public": {
+      "release": "20261125T171957",
+      "parent": "20261125T171335",
+      "page": 200,
+      "login": true,
+      "privateForm": 0,
+      "cache": "private, no-store",
+      "api": 401,
+      "head": 401,
+      "parse": 401,
+      "cron": 401,
+      "ownerDataCache": "private, no-store",
+      "capture": 200,
+      "home": 200,
+      "account": 200,
+      "browserErrors": []
+    },
+    "liveCalendarStyles": true,
+    "readingCore": true,
+    "ordinaryAccountTodoDenied": true,
+    "persistentServices": 5,
+    "health": true,
+    "rollbackImages": true,
+    "ownerDataEditedByVerification": false
+  }
+}
