@@ -6,6 +6,7 @@ export type Settings=TodoData["settings"];
 export type Snapshot=PrivateTodoSnapshot;
 export interface Entry {task: Task; occ: string}
 export type View = "today" | "upcoming" | "all" | "day" | "history";
+import {lunarMonths,lunarDays,nextLunarOccurrence} from "./lunar-calendar";
 const dayMs = 86400000;
 export const isoDay = (now = Date.now()) => new Date(now + 8 * 3600000).toISOString().slice(0, 10);
 export const plusDays = (d: string, n: number) => new Date(Date.parse(d + "T12:00:00Z") + n * dayMs).toISOString().slice(0, 10);
@@ -72,16 +73,19 @@ export function weekStart(day:string) {
 export function eventRepeatLabel(event:CalendarEvent) {
   if(event.frequency==="once")return "单次事件";
   if(event.frequency==="week")return dateLabel(event.startDate)+"至"+dateLabel(plusDays(event.startDate,6));
+  if(event.frequency==="lunarYearly")return "每年农历"+lunarMonths[event.lunarMonth!-1]+lunarDays[event.monthDay-1];
   if(event.frequency==="monthly")return "每月 "+event.monthDay+" 日";
   return "每周"+[1,2,3,4,5,6,0].filter(n=>event.weekdays.includes(n)).map(n=>"日一二三四五六"[n]).join("、");
 }
 function occursOn(event:CalendarEvent, day:string, weekday:number) {
   if(event.frequency==="once")return day===event.startDate;
   if(event.frequency==="week")return day>=event.startDate && day<=plusDays(event.startDate,6);
+  if(event.frequency==="lunarYearly")return day>=event.startDate && (!event.endDate || day<=event.endDate) && nextLunarOccurrence(day,day,event.lunarMonth!,event.monthDay)===day;
   return event.startDate<=day && (!event.endDate || day<=event.endDate) &&
     (event.frequency==="weekly" ? event.weekdays.includes(weekday) : event.monthDay===Number(day.slice(-2)));
 }
 export function firstEventDate(event:CalendarEvent) {
+  if(event.frequency==="lunarYearly")return nextLunarOccurrence(event.startDate,event.endDate,event.lunarMonth!,event.monthDay);
   // Adjacent occurrences of a monthly date are at most 61 days apart.
   for(let offset=0;offset<=62;offset++){
     const day=plusDays(event.startDate,offset);

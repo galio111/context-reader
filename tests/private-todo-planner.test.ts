@@ -1,5 +1,16 @@
 import {strict as assert} from "node:assert";
 import {test} from "node:test";
+import {isSpringFestival} from "../components/todo/lunar-calendar";
+
+test("Spring Festival follows lunar New Year across Gregorian months and adjacent dates",()=>{
+  for(const date of ["2025-01-29","2026-02-17","2027-02-06","2028-01-26"]) {
+    assert.equal(isSpringFestival(date),true);
+    for(const offset of [-1,1]) {
+      const adjacent = new Date(Date.parse(date+"T12:00:00Z")+offset*86400000);
+      assert.equal(isSpringFestival(adjacent.toISOString().slice(0,10)),false);
+    }
+  }
+});
 import {reorderCategory,calendarDays,dateLabel,weekStart,calendarItems,eventsOnDay,firstEventDate,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
 
 import {isCalendarEvent,type CalendarEvent} from "../lib/privateTodoState";
@@ -117,6 +128,18 @@ test("category order defaults to deadlines and a manual move affects only that c
   assert.equal(updateCategories(sorted,[],["课程"]).tasks[0].sortOrder,undefined);
   const added={...sorted,tasks:[...sorted.tasks,{...base,id:"new",date:day,category:"课程"}]};
   assert.equal(ids(added).at(-1),"new");
+});
+test("annual lunar events skip the intercalary month and include next-year Gregorian dates",()=>{
+  const event:CalendarEvent={id:"lunar",title:"纪念日",frequency:"lunarYearly",lunarMonth:6,monthDay:1,
+    startDate:"2025-01-01",endDate:"",weekdays:[],startTime:"",endTime:"",color:"#246789"};
+  assert.ok(isCalendarEvent(event));
+  assert.equal(firstEventDate(event),"2025-06-25");
+  assert.equal(eventsOnDay([event],"2025-06-25").length,1);
+  assert.equal(eventsOnDay([event],"2025-07-25").length,0);
+  assert.equal(firstEventDate({...event,lunarMonth:12,startDate:"2027-01-01"}),"2027-01-08");
+  assert.equal(firstEventDate({...event,endDate:"2025-02-01"}),"");
+  assert.equal(isCalendarEvent({...event,lunarMonth:13}),false);
+  assert.equal(isCalendarEvent({...event,monthDay:31}),false);
 });
 test("24 hour view spans midnight and excludes untimed backlog",()=>{
   const s=workspace([{...base,id:"none",date:""},{...base,id:"past",date:day,time:"09:00"},
