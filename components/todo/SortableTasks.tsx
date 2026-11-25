@@ -15,7 +15,7 @@ export function SortableTasks({children,onMove}:{children:ReactNode;onMove:(move
     const rows=()=>Array.from(list.querySelectorAll<HTMLElement>("[data-order-id]"));
     function clearTarget(){if(target)delete target.dataset.drop;target=null}
     function cancel(){
-      window.clearTimeout(timer);cancelAnimationFrame(frame);clearTarget();
+      window.clearTimeout(timer);cancelAnimationFrame(frame);frame=0;clearTarget();
       if(source)delete source.dataset.dragging;
       source=null;active=false;touchId=null;
     }
@@ -43,14 +43,14 @@ export function SortableTasks({children,onMove}:{children:ReactNode;onMove:(move
       touchId=id;startX=x=px;startY=y=py;
       timer=window.setTimeout(()=>{
         if(!source?.isConnected){cancel();return}
-        source.dataset.dragging="true";active=true;frame=requestAnimationFrame(autoScroll);
+        source.dataset.dragging="true";active=true;
       },380);
     }
     function move(px:number,py:number){
       if(!source)return;
       x=px;y=py;
       if(!active){if(Math.hypot(x-startX,y-startY)>8)cancel();return}
-      locate();
+      locate();if(!frame && active)frame=requestAnimationFrame(autoScroll);
     }
     function finish(px:number,py:number){
       if(!source)return;

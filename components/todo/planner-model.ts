@@ -44,7 +44,7 @@ export function updateCategories(state: TodoData, added: string[], removed: stri
   const fallback = categories.includes("未分类") ? "未分类" : "";
   const tasks = deleted.size || rename.size ? state.tasks.map(task => {
     const category = deleted.has(task.category) ? fallback : rename.get(task.category);
-    return category === undefined ? task : {...task,category,...(deleted.has(task.category)?{sortOrder:undefined}:{})};
+    return category === undefined ? task : {...task,category,...(deleted.has(task.category) && task.sortOrder!==undefined?{sortOrder:undefined}:{})};
   }) : state.tasks;
   const history = rename.size ? state.history.map(h=>rename.has(h.category) ? {...h,category:rename.get(h.category)!} : h) : state.history;
   return {...state, categories, tasks, history};
