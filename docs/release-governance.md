@@ -2,6 +2,10 @@
 
 ## Current production release
 
+Accepted 20261125T171335, parent 20261124T223132, source a39e2436252bb8d1c0981245e2395e2df9f527f0. The private planner supports persistent per-category ordering. [Evidence](evidence/todo-order-20261125.json)
+
+## Previous calendar release
+
 Accepted 20261124T223132, parent 20261124T220835, source 14f7673ebc67e70fd49cb2a4acbe1655285fd9a8. The calendar displays pending tasks and one-time, week-unscheduled, weekly or monthly events. [Evidence](evidence/todo-recurring-calendar-20261124.json)
 
 ## Previous planner category release
