@@ -2,6 +2,10 @@
 
 ## Current production release
 
+Accepted 20261125T200910, parent 20261125T172953, source 0128f085c2ff1abc2f0629cbdd947ffb41f7af88. Category headings identify grouped tasks. Mixed lists show each task’s category. [Evidence](evidence/todo-category-label-20261125.json)
+
+## Previous lunar calendar release
+
 Accepted 20261125T172953, parent 20261125T171957, source 2e04c10034c1d6ee3dcea61b55e592044a4c0e68. The calendar labels Spring Festival and supports private yearly lunar events. [Evidence](evidence/todo-lunar-calendar-20261125.json)
 
 ## Previous month layout release
