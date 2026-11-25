@@ -1,7 +1,7 @@
 "use client";
 import {useCallback,useEffect,useMemo,useRef,useState,type CSSProperties} from "react";
 import Link from "next/link";
-import {calendarDays,defaultUrgentColor,urgencyLabel,updateCategories,dateLabel,relativeDayLabel,calendarItems,firstEventDate,eventsOnDay,eventTime,eventRepeatLabel,plusDays,isoDay,learnedCategory,nextMonth,occurrenceKey,priorityLabels,taskGroups,timing,type Completed,type Entry,type Settings,type Task,type View} from "./planner-model";
+import {calendarDays,defaultUrgentColor,urgencyLabel,updateCategories,dateLabel,relativeDayLabel,upcomingAgenda,calendarItems,firstEventDate,eventsOnDay,eventTime,eventRepeatLabel,plusDays,isoDay,learnedCategory,nextMonth,occurrenceKey,priorityLabels,taskGroups,timing,type Completed,type Entry,type Settings,type Task,type View} from "./planner-model";
 import {SortableTasks} from "./SortableTasks";
 import {reorderCategory,type TaskMove} from "./planner-model";
 import {isSpringFestival} from "./lunar-calendar";
@@ -109,6 +109,7 @@ export default function PrivateTodoWorkspace() {
   const contents=useMemo(()=>new Map(cells.map(day=>[day,calendarItems(state?.tasks||[],state?.events||[],day,doneKeys)])),[state?.tasks,state?.events,cells,doneKeys]);
   const previewDay=contents.has(hoverDay) ? hoverDay : selected.startsWith(month) ? selected : "";
   const monthHasHigh=[...contents.values()].some(rows=>rows.some(item=>item.high));
+  const upcoming=view==="upcoming" ? upcomingAgenda(state?.events||[],groups,now) : [];
   const shownDay=view==="day" ? selected : today;
   const shownEvents=view==="day" || view==="today" ? eventsOnDay(state?.events||[],shownDay) : [];
   const tomorrow=plusDays(today,1);
@@ -176,11 +177,14 @@ export default function PrivateTodoWorkspace() {
       <div><strong>{task.title}</strong><small>{urgent && <b className="td-urgency">{urgent}</b>}{view!=="all" && task.category && <span>{task.category}</span>}{timing(entry,today)}{task.priority && urgent!=="高优先级" && " · "+priorityLabels[task.priority]+"优先级"}</small></div>
       <button className="td-link" aria-label={"编辑「"+task.title+"」"} onClick={()=>setEditing({key:editKey,original:task})}>编辑</button></div>;
   }
+  function renderEvent(event:CalendarEvent,day:string){
+    return <div key={"event:"+event.id} className="td-row td-event-row" style={{"--td-mark":event.color} as CSSProperties}>
+      <div><strong>{event.title}</strong><small>{eventTime(event)} · {eventRepeatLabel(event)}</small></div>
+      <button className="td-link" aria-label={"编辑日历事件「"+event.title+"」"} onClick={()=>setEventEditor({day,original:event})}>编辑</button></div>;
+  }
   function renderEvents(events:CalendarEvent[],day:string,heading:string){
     if(!events.length)return null;
-    return <section className="td-group"><h2>{heading}</h2>{events.map(event=><div key={event.id} className="td-row td-event-row" style={{"--td-mark":event.color} as CSSProperties}>
-      <div><strong>{event.title}</strong><small>{eventTime(event)} · {eventRepeatLabel(event)}</small></div>
-      <button className="td-link" aria-label={"编辑日历事件「"+event.title+"」"} onClick={()=>setEventEditor({day,original:event})}>编辑</button></div>)}</section>;
+    return <section className="td-group"><h2>{heading}</h2>{events.map(event=>renderEvent(event,day))}</section>;
   }
   return <main className="td-app" style={{"--td-urgent":state?.settings.urgentColor || defaultUrgentColor} as CSSProperties}>
     <header className="td-top"><div><span className="td-brand">Context Reader</span><span className="td-separator">/</span><b>私人待办</b></div><Link href="/" prefetch={false}>返回阅读站 ↗</Link></header>
@@ -202,10 +206,14 @@ export default function PrivateTodoWorkspace() {
       <section className="td-agenda" ref={agenda}>
         <div className="td-heading"><h1>{view==="day"?dateLabel(selected)+"的待办":labels[view]}</h1>{view==="day" && <ScopedAdd openEvent={openEvent} key={selected} date={selected} ready={captureReady}/>}{view==="today"&&<span>{dateLabel(today)} · {"周"+"日一二三四五六"[new Date(today+"T12:00:00Z").getUTCDay()]}</span>}</div>
         {view==="all" && <label className="td-filter">分类<select value={categoryFilter} onChange={e=>{setCategoryFilter(e.target.value);setEditing(null)}}><option value="">所有分类</option>{state!.categories.map(c=><option key={c}>{c}</option>)}</select></label>}
-        {view==="upcoming" && <p className="td-caption">接下来 24 小时内截止，全天事项按当天结束计算。</p>}
+        {view==="upcoming" && <p className="td-caption">显示这段时间的日程和到期待办，全天待办按当天结束计算。</p>}
         {(view==="today" || view==="day") && isSpringFestival(shownDay) && <p className="td-caption">春节 · 农历正月初一</p>}
         {renderEvents(shownEvents,shownDay,"当日日程")}
-        {view==="history"?historyDates.size?[...historyDates].map(([day,records])=><section key={day} className="td-group"><h2>{day}</h2>{renderHistory(records)}</section>):<p className="td-empty">勾选完成的待办会按日期留在这里。</p>:
+        {view==="upcoming" ? upcoming.length ? upcoming.map(({day,items})=>
+          <section key={day} className="td-group"><h2>{day===today?"今天":"明天"}</h2>{items.map(item=>
+            "entry" in item ? renderRow(item.entry,day) : renderEvent(item.event,day))}</section>)
+          : <p className="td-empty">未来 24 小时没有日程或到期的待办。</p>
+          : view==="history"?historyDates.size?[...historyDates].map(([day,records])=><section key={day} className="td-group"><h2>{day}</h2>{renderHistory(records)}</section>):<p className="td-empty">勾选完成的待办会按日期留在这里。</p>:
           groups.length?groups.map(group=><section key={group.category===undefined ? group.title : "category:"+group.category} className="td-group"><div className="td-group-head"><h2>{group.title}</h2>{group.category!==undefined && <ScopedAdd openEvent={openEvent} key={group.category} category={group.category} ready={captureReady}/>}{group.category!==undefined && group.rows.some(e=>e.task.sortOrder!==undefined) && <button className="td-link td-reset-order" onClick={()=>void saveOrder(group.category!,null)}>按截止时间排序</button>}</div>
             {group.category!==undefined ? <SortableTasks onMove={move=>void saveOrder(group.category!,move)}>{group.rows.map(entry=>renderRow(entry,group.title))}</SortableTasks> : group.rows.map(entry=>renderRow(entry,group.title))}</section>):
           shownEvents.length?null:<p className="td-empty">{view==="today"?"今天还没有要开工、到期或例行的待办。":view==="day"?"这一天没有待完成的事项。":"这个范围内没有待完成的事项。"}</p>}

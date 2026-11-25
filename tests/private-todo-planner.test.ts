@@ -11,7 +11,7 @@ test("Spring Festival follows lunar New Year across Gregorian months and adjacen
     }
   }
 });
-import {reorderCategory,calendarDays,dateLabel,weekStart,calendarItems,eventsOnDay,firstEventDate,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
+import {upcomingAgenda,reorderCategory,calendarDays,dateLabel,weekStart,calendarItems,eventsOnDay,firstEventDate,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
 
 import {isCalendarEvent,type CalendarEvent} from "../lib/privateTodoState";
 const day="2026-04-10";
@@ -140,6 +140,24 @@ test("annual lunar events skip the intercalary month and include next-year Grego
   assert.equal(firstEventDate({...event,endDate:"2025-02-01"}),"");
   assert.equal(isCalendarEvent({...event,lunarMonth:13}),false);
   assert.equal(isCalendarEvent({...event,monthDay:31}),false);
+});
+test("rolling agenda interleaves deadlines and occurrences and shows a spanning week once",()=>{
+  const event:CalendarEvent={id:"event",title:"复习课",frequency:"once",weekdays:[],monthDay:1,startDate:day,endDate:"",startTime:"",endTime:"",color:"#456789"};
+  const tomorrow="2026-04-11";
+  const dated=(id:string,startDate:string,startTime:string,endTime="")=>({...event,id,startDate,startTime,endTime});
+  const events:CalendarEvent[]=[
+    {...event,id:"week",frequency:"week",startDate:"2026-04-06"},
+    dated("over",day,"15:00","18:00"),dated("ongoing",day,"17:30","19:00"),dated("past",day,"16:00"),
+    {...dated("weekly",day,"20:00"),frequency:"weekly",weekdays:[5]},
+    dated("all",tomorrow,""),dated("atLimit",tomorrow,"18:00"),dated("later",tomorrow,"18:01")
+  ];
+  const state=workspace([{...base,date:day,time:"19:00"},{...base,id:"daily",date:day,daily:true}]);
+  const groups=upcomingAgenda(events,taskGroups(state,"upcoming",day,day,now),now);
+  assert.deepEqual(groups.map(group=>group.items.map(item=>"entry" in item?item.entry.task.id:item.event.id)),[
+    ["week","ongoing","one","weekly"],["all","atLimit"]
+  ]);
+  assert.equal(upcomingAgenda(events,[],now).length,2);
+  assert.deepEqual(upcomingAgenda([],[],now),[]);
 });
 test("24 hour view spans midnight and excludes untimed backlog",()=>{
   const s=workspace([{...base,id:"none",date:""},{...base,id:"past",date:day,time:"09:00"},
