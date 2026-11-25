@@ -1,0 +1,45 @@
+{
+  "release": "20261125T172953",
+  "parent": "20261125T171957",
+  "source": "2e04c10034c1d6ee3dcea61b55e592044a4c0e68",
+  "site": "https://context-reader.com/todo",
+  "local": {
+    "productionBuild": true,
+    "plannerAndProviderTests": 24,
+    "critical": 90,
+    "architecture": 178,
+    "contracts": true,
+    "tested": [
+      "Spring Festival on Gregorian 2027-02-06",
+      "yearly lunar editor save and reload",
+      "skip intercalary months",
+      "holiday alongside same-day agenda in mobile and desktop views"
+    ]
+  },
+  "production": {
+    "public": {
+      "release": "20261125T172953",
+      "parent": "20261125T171957",
+      "page": 200,
+      "login": true,
+      "privateForm": 0,
+      "cache": "private, no-store",
+      "api": 401,
+      "head": 401,
+      "parse": 401,
+      "cron": 401,
+      "ownerDataCache": "private, no-store",
+      "capture": 200,
+      "home": 200,
+      "account": 200,
+      "browserErrors": []
+    },
+    "liveCalendarStyles": true,
+    "readingCore": true,
+    "ordinaryAccountTodoDenied": true,
+    "persistentServices": 5,
+    "health": true,
+    "rollbackImages": true,
+    "ownerDataEditedByVerification": false
+  }
+}

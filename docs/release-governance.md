@@ -2,6 +2,10 @@
 
 ## Current production release
 
+Accepted 20261125T172953, parent 20261125T171957, source 2e04c10034c1d6ee3dcea61b55e592044a4c0e68. The calendar labels Spring Festival and supports private yearly lunar events. [Evidence](evidence/todo-lunar-calendar-20261125.json)
+
+## Previous month layout release
+
 Accepted 20261125T171957, parent 20261125T171335, source aae606aecae7056b5bd4adee03122af465448f6b. Month cells list every scheduled item with relative dates alongside the day number. [Evidence](evidence/todo-calendar-clarity-20261125.json)
 
 ## Previous category ordering release
