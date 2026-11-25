@@ -106,6 +106,7 @@ export default function PrivateTodoWorkspace() {
   const undated=state?.tasks.filter(t=>!t.daily&&!t.date&&!doneKeys.has(occurrenceKey(t,""))).length||0;
   const cells=useMemo(()=>calendarDays(month),[month]);
   const contents=useMemo(()=>new Map(cells.map(day=>[day,calendarItems(state?.tasks||[],state?.events||[],day,doneKeys)])),[state?.tasks,state?.events,cells,doneKeys]);
+  const previewDay=contents.has(hoverDay) ? hoverDay : selected.startsWith(month) ? selected : "";
   const monthHasHigh=[...contents.values()].some(rows=>rows.some(item=>item.high));
   const shownDay=view==="day" ? selected : today;
   const shownEvents=view==="day" || view==="today" ? eventsOnDay(state?.events||[],shownDay) : [];
@@ -219,14 +220,18 @@ export default function PrivateTodoWorkspace() {
           const rows=contents.get(d)||[];
           const highCount=rows.filter(item=>item.high).length;
           return <button key={d} className={"td-cell "+(d===today?"td-cell-today ":"")+(d===selected&&view==="day"?"td-selected ":"")+(d.slice(0,7)!==month?"td-other ":"")} onClick={()=>jump(d)} onFocus={()=>setHoverDay(d)} onMouseEnter={()=>setHoverDay(d)} aria-label={dateLabel(d,today)+"，"+rows.length+"项安排"+(highCount?"，其中"+highCount+"项高优先级":"")}>
-            <b>{Number(d.slice(-2))}</b>{relativeDayLabel(d,today) && <small className="td-relative-day">{relativeDayLabel(d,today)}</small>}{rows.slice(0,2).map(item=>{
+            <span className="td-cell-date"><b>{Number(d.slice(-2))}</b>{relativeDayLabel(d,today) && <small className="td-relative-day">{relativeDayLabel(d,today)}</small>}</span>
+            {rows.map(item=>{
               const mark=item.event?.color || item.task?.color || (item.task && urgencyLabel(item.task,today,now) ? "var(--td-urgent)" : undefined);
-              return <span key={item.key} style={mark ? {"--td-mark":mark} as CSSProperties : undefined} data-marked={mark ? true : undefined} className={item.high?"td-priority-high":""} title={item.timeLabel+" · "+item.title}>{item.high?"↑ ":""}{item.event?.frequency==="week" && "周内·"}{item.title}{item.event && item.time && <time> {item.time}</time>}</span>
-            })}{rows.length>2 && <i>+{rows.length-2}</i>}</button>;
+              return <span key={item.key} style={mark ? {"--td-mark":mark} as CSSProperties : undefined} data-marked={mark ? true : undefined} className={"td-cell-item"+(item.high?" td-priority-high":"")} title={item.timeLabel+" · "+item.title}>
+                <span className="td-item-title">{item.event?.frequency==="week" && "周内·"}{item.title}</span>
+                {item.time && <time>{item.time}</time>}
+              </span>
+            })}</button>;
         })}</div>
-        {monthHasHigh && <p className="td-legend"><span className="td-priority-high">↑ 高优先级</span></p>}
-        {hoverDay && contents.has(hoverDay) && <div className="td-day-preview"><b>{dateLabel(hoverDay)}</b>{(contents.get(hoverDay)||[]).map(item=>
-          <p key={item.key}>{item.high&&<span className="td-priority-high">↑ 高优先级</span>}{item.timeLabel}　{item.title}</p>)}{!contents.get(hoverDay)?.length&&<p>这天暂时空着。</p>}</div>}
+        {monthHasHigh && <p className="td-legend"><span className="td-priority-high">高优先级</span></p>}
+        {previewDay && <div className="td-day-preview"><b>{dateLabel(previewDay,today)}</b>{(contents.get(previewDay)||[]).map(item=>
+          <p key={item.key}>{item.high&&<span className="td-priority-high">高优先级</span>}{item.timeLabel}　{item.title}</p>)}{!contents.get(previewDay)?.length&&<p>这天暂时空着。</p>}</div>}
       </section>
       <button className="td-mobile-add" onClick={()=>{input.current?.scrollIntoView({block:"center"});input.current?.focus()}}>＋ 随手记</button>
       <dialog id="capture-dialog" aria-label="确认待办"/>
