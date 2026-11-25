@@ -1,6 +1,6 @@
 import {strict as assert} from "node:assert";
 import {test} from "node:test";
-import {calendarDays,dateLabel,weekStart,calendarItems,eventsOnDay,firstEventDate,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
+import {reorderCategory,calendarDays,dateLabel,weekStart,calendarItems,eventsOnDay,firstEventDate,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
 
 import {isCalendarEvent,type CalendarEvent} from "../lib/privateTodoState";
 const day="2026-04-10";
@@ -98,6 +98,25 @@ test("a one-off exam and an undated exam week have distinct calendar and time se
   assert.equal(week.startDate,"2026-12-28");assert.ok(isCalendarEvent(week));assert.ok(!isCalendarEvent({...week,startTime:"14:00"}));
   for(const d of ["2026-12-28","2027-01-01","2027-01-03"])assert.equal(calendarItems([],[week],d,new Set())[0].timeLabel,"周内日期待定");
   assert.deepEqual(eventsOnDay([week],"2027-01-04"),[]);
+});
+test("category order defaults to deadlines and a manual move affects only that category",()=>{
+  const state=workspace([{...base,id:"future",category:"课程",priority:"high",date:"2026-04-15"},
+    {...base,id:"same-day",category:"课程",date:day,time:"09:00"},{...base,id:"expired",date:"2026-04-08",category:"课程"},
+    {...base,id:"all-day",date:day,category:"课程"},{...base,id:"undated",date:"",category:"课程"},{...base,id:"other",category:"科研"}]);
+  state.categories=["课程","科研"];
+  const ids=(s:TodoData)=>taskGroups(s,"all",day,day,now).find(g=>g.category==="课程")!.rows.map(r=>r.task.id);
+  assert.deepEqual(ids(state),["expired","same-day","all-day","future","undated"]);
+  const move={source:"undated",target:"expired",after:false};
+  const sorted=reorderCategory(state,"课程",move);
+  assert.deepEqual(ids(JSON.parse(JSON.stringify(sorted))),["undated","expired","same-day","all-day","future"]);
+  assert.equal(reorderCategory(sorted,"课程",move),sorted);
+  assert.deepEqual(ids(reorderCategory(sorted,"课程",null)),ids(state));
+  assert.equal(sorted.tasks.find(t=>t.id==="other")?.sortOrder,undefined);
+  assert.throws(()=>reorderCategory(sorted,"课程",{...move,target:"other"}));
+  assert.equal(updateCategories(sorted,[],[],[{from:"课程",to:"新分类"}]).tasks[0].sortOrder,sorted.tasks[0].sortOrder);
+  assert.equal(updateCategories(sorted,[],["课程"]).tasks[0].sortOrder,undefined);
+  const added={...sorted,tasks:[...sorted.tasks,{...base,id:"new",date:day,category:"课程"}]};
+  assert.equal(ids(added).at(-1),"new");
 });
 test("24 hour view spans midnight and excludes untimed backlog",()=>{
   const s=workspace([{...base,id:"none",date:""},{...base,id:"past",date:day,time:"09:00"},

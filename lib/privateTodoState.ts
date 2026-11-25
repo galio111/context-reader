@@ -10,6 +10,7 @@ export type TodoTask = {
   priority: "" | "high" | "normal" | "low";
   color?: string;
   created: string;
+  sortOrder?: number;
   skippedDates?: string[];
 };
 
@@ -70,7 +71,7 @@ function task(value: unknown): value is TodoTask {
     && (value.date === "" || date(value.date)) && (value.time === "" || (time(value.time) && date(value.date)))
     && integer(value.lead, 0, 3650) && typeof value.daily === "boolean" && missed(value.missed)
     && ["", "high", "normal", "low"].includes(String(value.priority)) && typeof value.priority === "string"
-    && optionalColor(value.color) && date(value.created) && (value.skippedDates === undefined || (Array.isArray(value.skippedDates)
+    && (value.sortOrder === undefined || integer(value.sortOrder,0,Number.MAX_SAFE_INTEGER)) && optionalColor(value.color) && date(value.created) && (value.skippedDates === undefined || (Array.isArray(value.skippedDates)
       && value.skippedDates.every(date) && unique(value.skippedDates)));
 }
 

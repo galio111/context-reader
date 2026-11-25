@@ -2,6 +2,8 @@
 import {useCallback,useEffect,useMemo,useRef,useState,type CSSProperties} from "react";
 import Link from "next/link";
 import {calendarDays,defaultUrgentColor,urgencyLabel,updateCategories,dateLabel,relativeDayLabel,calendarItems,firstEventDate,eventsOnDay,eventTime,eventRepeatLabel,plusDays,isoDay,learnedCategory,nextMonth,occurrenceKey,priorityLabels,taskGroups,timing,type Completed,type Entry,type Settings,type Task,type View} from "./planner-model";
+import {SortableTasks} from "./SortableTasks";
+import {reorderCategory,type TaskMove} from "./planner-model";
 import {CalendarEventEditor} from "./CalendarEventEditor";
 import type {CalendarEvent} from "@/lib/privateTodoState";
 import {InlineEditor,SettingsEditor} from "./TodoEditors";
@@ -150,6 +152,10 @@ export default function PrivateTodoWorkspace() {
   const renderHistory=(records:Completed[])=>records.map(h=><div className="td-row td-past" key={h.key}>
     <span className="td-history-check" aria-hidden>✓</span><div><strong>{h.title}</strong><small>{[h.category,h.importedWithoutCompletionDate?"从备忘录导入":clock.format(h.finished)+" 勾选",h.daily?dateLabel(h.occ)+"的每日任务":""].filter(Boolean).join(" · ")}</small></div>
     <button className="td-link" onClick={()=>void restore(h.key)}>恢复</button></div>);
+  async function saveOrder(category:string,move:TaskMove|null) {
+    try{await mutate(s=>reorderCategory(s,category,move));setNotice({text:move?"顺序已保存":"已恢复按截止时间排序"})}
+    catch(e){setNotice({text:(e as Error).message})}
+  }
   function renderRow(entry:Entry,groupTitle:string) {
     const {task,occ}=entry,key=occurrenceKey(task,occ);
     const editKey=JSON.stringify([groupTitle,key]);
@@ -157,13 +163,13 @@ export default function PrivateTodoWorkspace() {
       await mutate(s=>{
         const original=s.tasks.find(t=>t.id===task.id);
         if(!original||[...new Set([...Object.keys(editing.original),...Object.keys(original)])].some(k=>JSON.stringify(original[k as keyof Task])!==JSON.stringify(editing.original[k as keyof Task])))throw Error("这项待办在其他设备已修改，取消编辑后可查看最新内容。");
-        return {...s,tasks:s.tasks.map(t=>t.id===task.id?{...next,category:s.categories.includes(next.category)?next.category:""}:t)};
+        return {...s,tasks:s.tasks.map(t=>t.id===task.id?{...next,sortOrder:next.category===original.category && next.daily===original.daily?original.sortOrder:undefined,category:s.categories.includes(next.category)?next.category:""}:t)};
       });setEditing(null);setNotice({text:"已保存修改"});
     }}/>;
     const done=settling.includes(key);
     const urgent=urgencyLabel(task,today,now);
     const color=done ? undefined : task.color || (urgent ? state?.settings.urgentColor || defaultUrgentColor : undefined);
-    return <div key={key} style={color ? {"--td-mark":color} as CSSProperties : undefined} className={"td-row"+(color?" td-marked":"")+(done?" td-checked":"")}>
+    return <div key={key} data-order-id={view==="all" && !done ? task.id : undefined} tabIndex={view==="all" && !done ? 0 : undefined} aria-keyshortcuts={view==="all"?"Alt+ArrowUp Alt+ArrowDown":undefined} style={color ? {"--td-mark":color} as CSSProperties : undefined} className={"td-row"+(color?" td-marked":"")+(done?" td-checked":"")}>
       <button type="button" className="td-tick" role="checkbox" aria-label={"完成「"+task.title+"」"} aria-checked={done} disabled={done||(task.daily&&occ>today)} onClick={()=>void complete(entry)}><svg viewBox="0 0 20 20" aria-hidden><path d="M4 10l4 4 8-9" pathLength="1"/></svg></button>
       <div><strong>{task.title}</strong><small>{urgent && <b className="td-urgency">{urgent}</b>}{task.category && <span>{task.category}</span>}{timing(entry,today)}{task.priority && urgent!=="高优先级" && " · "+priorityLabels[task.priority]+"优先级"}</small></div>
       <button className="td-link" aria-label={"编辑「"+task.title+"」"} onClick={()=>setEditing({key:editKey,original:task})}>编辑</button></div>;
@@ -197,7 +203,8 @@ export default function PrivateTodoWorkspace() {
         {view==="upcoming" && <p className="td-caption">接下来 24 小时内截止，全天事项按当天结束计算。</p>}
         {renderEvents(shownEvents,shownDay,"当日日程")}
         {view==="history"?historyDates.size?[...historyDates].map(([day,records])=><section key={day} className="td-group"><h2>{day}</h2>{renderHistory(records)}</section>):<p className="td-empty">勾选完成的待办会按日期留在这里。</p>:
-          groups.length?groups.map(group=><section key={group.category===undefined ? group.title : "category:"+group.category} className="td-group"><div className="td-group-head"><h2>{group.title}</h2>{group.category!==undefined && <ScopedAdd openEvent={openEvent} key={group.category} category={group.category} ready={captureReady}/>}</div>{group.rows.map(entry=>renderRow(entry,group.title))}</section>):
+          groups.length?groups.map(group=><section key={group.category===undefined ? group.title : "category:"+group.category} className="td-group"><div className="td-group-head"><h2>{group.title}</h2>{group.category!==undefined && <ScopedAdd openEvent={openEvent} key={group.category} category={group.category} ready={captureReady}/>}{group.category!==undefined && group.rows.some(e=>e.task.sortOrder!==undefined) && <button className="td-link td-reset-order" onClick={()=>void saveOrder(group.category!,null)}>按截止时间排序</button>}</div>
+            {group.category!==undefined ? <SortableTasks onMove={move=>void saveOrder(group.category!,move)}>{group.rows.map(entry=>renderRow(entry,group.title))}</SortableTasks> : group.rows.map(entry=>renderRow(entry,group.title))}</section>):
           shownEvents.length?null:<p className="td-empty">{view==="today"?"今天还没有要开工、到期或例行的待办。":view==="day"?"这一天没有待完成的事项。":"这个范围内没有待完成的事项。"}</p>}
         {view==="today" && <>
           {!groups.some(group=>group.title==="明日待办") && <section className="td-group"><h2>明日待办</h2><p className="td-caption">明天没有待完成的事项。</p></section>}

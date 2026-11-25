@@ -44,7 +44,7 @@ export function updateCategories(state: TodoData, added: string[], removed: stri
   const fallback = categories.includes("未分类") ? "未分类" : "";
   const tasks = deleted.size || rename.size ? state.tasks.map(task => {
     const category = deleted.has(task.category) ? fallback : rename.get(task.category);
-    return category === undefined ? task : {...task,category};
+    return category === undefined ? task : {...task,category,...(deleted.has(task.category)?{sortOrder:undefined}:{})};
   }) : state.tasks;
   const history = rename.size ? state.history.map(h=>rename.has(h.category) ? {...h,category:rename.get(h.category)!} : h) : state.history;
   return {...state, categories, tasks, history};
@@ -110,6 +110,24 @@ export function calendarItems(tasks:Task[],events:CalendarEvent[],day:string,com
 function byDeadline(a: Entry, b: Entry) {
   return (a.occ || "9999").localeCompare(b.occ || "9999") || (a.task.time || "24:00").localeCompare(b.task.time || "24:00") || a.task.title.localeCompare(b.task.title, "zh-CN");
 }
+function categoryOrder(a:Entry,b:Entry) {
+  return (a.task.sortOrder ?? Number.MAX_SAFE_INTEGER) - (b.task.sortOrder ?? Number.MAX_SAFE_INTEGER)
+    || Number(!a.occ)-Number(!b.occ) || byDeadline(a,b);
+}
+export type TaskMove = {source:string; target:string; after:boolean};
+export function reorderCategory(state:TodoData,category:string,move:TaskMove|null):TodoData {
+  if(!move)return {...state,tasks:state.tasks.map(t=>t.category===category && t.sortOrder!==undefined ? {...t,sortOrder:undefined} : t)};
+  const entries=state.tasks.filter(t=>!t.daily && t.category===category).map(task=>({task,occ:task.date})).sort(categoryOrder);
+  const ids=entries.map(e=>e.task.id);
+  if(!ids.includes(move.source) || !ids.includes(move.target) ||
+    state.history.some(h=>h.key===move.source+"@once" || h.key===move.target+"@once"))throw Error("清单已变动，请按当前顺序重试。");
+  if(move.source===move.target)return state;
+  const next=ids.filter(id=>id!==move.source);
+  next.splice(next.indexOf(move.target)+Number(move.after),0,move.source);
+  if(next.every((id,i)=>id===ids[i]))return state;
+  const order=new Map(next.map((id,i)=>[id,i]));
+  return {...state,tasks:state.tasks.map(t=>order.has(t.id)?{...t,sortOrder:order.get(t.id)}:t)};
+}
 const rank = {high: 0, normal: 1, "": 1, low: 2};
 export function taskGroups(state: TodoData, view: View, today: string, selected: string, now: number) {
   const completed = new Set(state.history.map(h => h.key));
@@ -128,7 +146,7 @@ export function taskGroups(state: TodoData, view: View, today: string, selected:
       byCategory.get(task.category)!.push(entry);
     }
     for (const [category, entries] of byCategory)
-      groups.push({title: category || "未分类", category, rows: entries.sort((a,b) => rank[a.task.priority] - rank[b.task.priority] || byDeadline(a,b))});
+      groups.push({title: category || "未分类", category, rows: entries.sort(categoryOrder)});
     return groups;
   }
   if (view === "day") {
