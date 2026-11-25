@@ -2,6 +2,10 @@
 
 ## Current production release
 
+Accepted 20261125T215658, parent 20261125T200910, source 079344679585945a8c369640d2b151755751d8fa. The rolling 24-hour agenda includes calendar occurrences and due tasks in time order. [Evidence](evidence/todo-upcoming-events-20261125.json)
+
+## Previous category label release
+
 Accepted 20261125T200910, parent 20261125T172953, source 0128f085c2ff1abc2f0629cbdd947ffb41f7af88. Category headings identify grouped tasks. Mixed lists show each task’s category. [Evidence](evidence/todo-category-label-20261125.json)
 
 ## Previous lunar calendar release
