@@ -173,7 +173,7 @@ export default function PrivateTodoWorkspace() {
     const color=done ? undefined : task.color || (urgent ? state?.settings.urgentColor || defaultUrgentColor : undefined);
     return <div key={key} data-order-id={view==="all" && !done ? task.id : undefined} tabIndex={view==="all" && !done ? 0 : undefined} aria-keyshortcuts={view==="all"?"Alt+ArrowUp Alt+ArrowDown":undefined} style={color ? {"--td-mark":color} as CSSProperties : undefined} className={"td-row"+(color?" td-marked":"")+(done?" td-checked":"")}>
       <button type="button" className="td-tick" role="checkbox" aria-label={"完成「"+task.title+"」"} aria-checked={done} disabled={done||(task.daily&&occ>today)} onClick={()=>void complete(entry)}><svg viewBox="0 0 20 20" aria-hidden><path d="M4 10l4 4 8-9" pathLength="1"/></svg></button>
-      <div><strong>{task.title}</strong><small>{urgent && <b className="td-urgency">{urgent}</b>}{task.category && <span>{task.category}</span>}{timing(entry,today)}{task.priority && urgent!=="高优先级" && " · "+priorityLabels[task.priority]+"优先级"}</small></div>
+      <div><strong>{task.title}</strong><small>{urgent && <b className="td-urgency">{urgent}</b>}{view!=="all" && task.category && <span>{task.category}</span>}{timing(entry,today)}{task.priority && urgent!=="高优先级" && " · "+priorityLabels[task.priority]+"优先级"}</small></div>
       <button className="td-link" aria-label={"编辑「"+task.title+"」"} onClick={()=>setEditing({key:editKey,original:task})}>编辑</button></div>;
   }
   function renderEvents(events:CalendarEvent[],day:string,heading:string){
