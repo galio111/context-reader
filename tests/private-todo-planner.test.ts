@@ -11,7 +11,7 @@ test("Spring Festival follows lunar New Year across Gregorian months and adjacen
     }
   }
 });
-import {upcomingAgenda,reorderCategory,calendarDays,dateLabel,weekStart,calendarItems,eventsOnDay,firstEventDate,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
+import {dayReview,upcomingAgenda,reorderCategory,calendarDays,dateLabel,weekStart,calendarItems,eventsOnDay,firstEventDate,updateCategories,urgencyLabel,dayEntries,occurrenceKey,taskGroups,type Task,type TodoData} from "../components/todo/planner-model";
 
 import {isCalendarEvent,type CalendarEvent} from "../lib/privateTodoState";
 const day="2026-04-10";
@@ -158,6 +158,20 @@ test("rolling agenda interleaves deadlines and occurrences and shows a spanning 
   ]);
   assert.equal(upcomingAgenda(events,[],now).length,2);
   assert.deepEqual(upcomingAgenda([],[],now),[]);
+});
+test("a past day uses creation and completion dates, isolated from later activity",()=>{
+  const day="2026-11-25", next="2026-11-26", prior="2026-11-24";
+  const task={...base,date:day,created:prior,lead:0};
+  const state=workspace(["open","later","done","unknown","new","lead","routine"].map(id=>({
+    ...task,id,created:id==="new"?next:prior,date:id==="lead"?next:day,
+    lead:id==="lead"?1:0,daily:id==="routine"
+  })));
+  state.history=["later","done","unknown"].map(id=>({key:id+"@once",taskId:id,occ:day,daily:false,title:id,category:"",
+    finished:Date.parse((id==="later"?next:day)+"T00:00:00+08:00"),...(id==="unknown"?{importedWithoutCompletionDate:true as const}:{})}));
+  const review=dayReview(state,day);
+  assert.deepEqual(review.completed.map(h=>h.taskId),["done"]);
+  assert.deepEqual(review.groups.flatMap(g=>g.rows.map(e=>e.task.id)).sort(),["later","lead","open","routine"]);
+  assert.deepEqual(dayReview(state,"2026-10-31").groups,[]);
 });
 test("24 hour view spans midnight and excludes untimed backlog",()=>{
   const s=workspace([{...base,id:"none",date:""},{...base,id:"past",date:day,time:"09:00"},

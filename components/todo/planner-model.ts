@@ -209,6 +209,17 @@ export function taskGroups(state: TodoData, view: View, today: string, selected:
 
   return groups;
 }
+export function dayReview(state:TodoData,day:string) {
+  const dayStart=dueTime(day,"00:00"), dayEnd=dayStart+dayMs;
+  const history=state.history.filter(h=>h.importedWithoutCompletionDate || h.finished<dayEnd);
+  const tasks=state.tasks.filter(task=>task.created<=day);
+  const groups=taskGroups({...state,tasks,history},"today",day,day,dayStart)
+    .filter(group=>group.title!=="明日待办");
+  const completed=history.filter(h=>!h.importedWithoutCompletionDate && h.finished>=dayStart)
+    .sort((a,b)=>b.finished-a.finished);
+  return {groups,completed,events:eventsOnDay(state.events||[],day)};
+}
+
 export function timing({task: t, occ}: Entry, today: string) {
   if (t.daily) return (occ < today ? dateLabel(occ) + " 待补" : "每天") + (t.time ? " " + t.time : "") + (t.missed === "carry" ? " · 漏做保留" : "");
   if (!t.date) return "未定日期";

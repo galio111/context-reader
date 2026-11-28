@@ -5,6 +5,7 @@ import {calendarDays,defaultUrgentColor,urgencyLabel,updateCategories,dateLabel,
 import {SortableTasks} from "./SortableTasks";
 import {reorderCategory,type TaskMove} from "./planner-model";
 import {isSpringFestival} from "./lunar-calendar";
+import {TodayHeading,PastDay} from "./TodayReview";
 import {CalendarEventEditor} from "./CalendarEventEditor";
 import type {CalendarEvent} from "@/lib/privateTodoState";
 import {InlineEditor,SettingsEditor} from "./TodoEditors";
@@ -54,6 +55,8 @@ export default function PrivateTodoWorkspace() {
   const [now,setNow]=useState(Date.now);
   const today=isoDay(now);
   const [view,setView]=useState<View>("today"),[selected,setSelected]=useState(today),[month,setMonth]=useState(today.slice(0,7));
+  const [reviewDate,setReviewDate]=useState("");
+  const reviewing=view==="today" && !!reviewDate && reviewDate<today;
   const [chosenCategory,setCategoryFilter]=useState("");
   const categoryFilter=state?.categories.includes(chosenCategory) ? chosenCategory : "";
   useEffect(()=>{if(new URLSearchParams(location.search).get("view")==="all") setView("all")},[]);
@@ -130,6 +133,10 @@ export default function PrivateTodoWorkspace() {
     if(next && !original){eventEditor.onSaved?.();const first=firstEventDate(next);if(first)jump(first)}
     setNotice({text:next?"日历事件已保存":"日历事件已删除"});
   }
+  function selectReviewDay(day:string) {
+    setReviewDate(day===today?"":day);setMonth(day.slice(0,7));setSelected(day);
+    setHoverDay("");setEditing(null);setView("today");
+  }
   function jump(day:string) {setSelected(day);setHoverDay(day);setMonth(day.slice(0,7));setView("day");setEditing(null);if(window.innerWidth<950)agenda.current?.scrollIntoView({block:"start"})}
   const restore=useCallback(async(key:string)=>{
     try{await mutate(s=>({...s,history:s.history.filter(h=>h.key!==key)}));setNotice({text:"已恢复到待办清单"})}
@@ -200,11 +207,13 @@ export default function PrivateTodoWorkspace() {
           }}>记事件</button>
           <div id="record-status" role="status"/>{captureIssue && <p role="alert">{captureIssue}</p>}
         </form>
-        <nav aria-label="清单范围">{nav.map(([value,title])=><button key={value} aria-current={view===value?"page":undefined} onClick={()=>{setView(value);setEditing(null)}}>{title}</button>)}</nav>
+        <nav aria-label="清单范围">{nav.map(([value,title])=><button key={value} aria-current={view===value?"page":undefined} onClick={()=>{if(value==="today")selectReviewDay(today);else {setView(value);setEditing(null)}}}>{title}</button>)}</nav>
         <button className="td-settings" onClick={()=>setSettingsBase(state!.settings)}>待办设置</button>
       </aside>
       <section className="td-agenda" ref={agenda}>
-        <div className="td-heading"><h1>{view==="day"?dateLabel(selected)+"的待办":labels[view]}</h1>{view==="day" && <ScopedAdd openEvent={openEvent} key={selected} date={selected} ready={captureReady}/>}{view==="today"&&<span>{dateLabel(today)} · {"周"+"日一二三四五六"[new Date(today+"T12:00:00Z").getUTCDay()]}</span>}</div>
+        {view==="today" ? <TodayHeading day={reviewing?reviewDate:today} today={today} select={selectReviewDay}/> :
+          <div className="td-heading"><h1>{view==="day"?dateLabel(selected)+"的待办":labels[view]}</h1>{view==="day" && <ScopedAdd openEvent={openEvent} key={selected} date={selected} ready={captureReady}/>}</div>}
+        {reviewing ? <PastDay day={reviewDate} state={state!}/> : <>
         {view==="all" && <label className="td-filter">分类<select value={categoryFilter} onChange={e=>{setCategoryFilter(e.target.value);setEditing(null)}}><option value="">所有分类</option>{state!.categories.map(c=><option key={c}>{c}</option>)}</select></label>}
         {view==="upcoming" && <p className="td-caption">显示这段时间的日程和到期待办，全天待办按当天结束计算。</p>}
         {(view==="today" || view==="day") && isSpringFestival(shownDay) && <p className="td-caption">春节 · 农历正月初一</p>}
@@ -222,15 +231,16 @@ export default function PrivateTodoWorkspace() {
           {renderEvents(tomorrowEvents,tomorrow,"明日日程")}
           {!!undated && <button className="td-link td-undated" onClick={()=>{setCategoryFilter("");setView("all")}}>另有 {undated} 项未定日期，查看全部待办 ↗</button>}
           <details className="td-done"><summary>今日已完成 · {historyDates.get(today)?.length||0}</summary>{renderHistory(historyDates.get(today)||[])}</details></>}
-        {view==="day" && <button className="td-link" onClick={()=>setView("today")}>返回今天</button>}
+        {view==="day" && <button className="td-link" onClick={()=>selectReviewDay(today)}>返回今天</button>}
+        </>}
       </section>
       <section className="td-calendar" aria-label="月历"><div className="td-calendar-head"><h2>{month.slice(0,4)} 年 {Number(month.slice(5))} 月</h2>
-        <div><button className="td-event-add" aria-label="添加日历事件" onClick={()=>setEventEditor({original:null,day:view==="day"?selected:month===today.slice(0,7)?today:month+"-01"})}>＋ 事件</button><button aria-label="上个月" onClick={()=>{setMonth(nextMonth(month,-1));setHoverDay("")}}>‹</button><button onClick={()=>{setMonth(today.slice(0,7));setSelected(today);setView("today");setHoverDay("")}}>今</button><button aria-label="下个月" onClick={()=>{setMonth(nextMonth(month,1));setHoverDay("")}}>›</button></div></div>
+        <div><button className="td-event-add" aria-label="添加日历事件" onClick={()=>setEventEditor({original:null,day:view==="day"?selected:month===today.slice(0,7)?today:month+"-01"})}>＋ 事件</button><button aria-label="上个月" onClick={()=>{setMonth(nextMonth(month,-1));setHoverDay("")}}>‹</button><button onClick={()=>selectReviewDay(today)}>今</button><button aria-label="下个月" onClick={()=>{setMonth(nextMonth(month,1));setHoverDay("")}}>›</button></div></div>
         <div className="td-month">{[..."一二三四五六日"].map(d=><span className="td-week" key={d}>{d}</span>)}{cells.map(d=>{
           const rows=contents.get(d)||[];
           const festival=isSpringFestival(d);
           const highCount=rows.filter(item=>item.high).length;
-          return <button key={d} className={"td-cell "+(d===today?"td-cell-today ":"")+(d===selected&&view==="day"?"td-selected ":"")+(d.slice(0,7)!==month?"td-other ":"")} onClick={()=>jump(d)} onFocus={()=>setHoverDay(d)} onMouseEnter={()=>setHoverDay(d)} aria-label={dateLabel(d,today)+(festival?"，春节，农历正月初一":"")+"，"+rows.length+"项安排"+(highCount?"，其中"+highCount+"项高优先级":"")}>
+          return <button key={d} className={"td-cell "+(d===today?"td-cell-today ":"")+(d===selected&&(view==="day" || reviewing)?"td-selected ":"")+(d.slice(0,7)!==month?"td-other ":"")} onClick={()=>jump(d)} onFocus={()=>setHoverDay(d)} onMouseEnter={()=>setHoverDay(d)} aria-label={dateLabel(d,today)+(festival?"，春节，农历正月初一":"")+"，"+rows.length+"项安排"+(highCount?"，其中"+highCount+"项高优先级":"")}>
             <span className="td-cell-date"><b>{Number(d.slice(-2))}</b>{relativeDayLabel(d,today) && <small className="td-relative-day">{relativeDayLabel(d,today)}</small>}</span>
             {festival && <small className="td-holiday">春节</small>}
             {rows.map(item=>{
