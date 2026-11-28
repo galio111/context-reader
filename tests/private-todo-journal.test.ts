@@ -16,10 +16,12 @@ test("backdating credits the selected day, preserves the click time and leaves t
   assert.equal(journalRows(s,"2026-11-28").filter(r=>r.title==="练习").length,1);
   assert.ok(!isPrivateTodoState({...s,history:[{...s.history[0],creditedDay:"2026-02-31"}]}));
 });
-test("event completion belongs to one occurrence and a later deleted event keeps its receipt",()=>{
+test("events always export as schedule entries even if a legacy receipt exists",()=>{
   const s={...state,eventChecks:[{eventId:"m",title:"组会",day,finished:later}]};
   assert.ok(isPrivateTodoState(s));assert.ok(!isPrivateTodoState({...s,eventChecks:[...s.eventChecks,...s.eventChecks]}));
-  assert.equal(journalRows(s,day).find(r=>r.kind==="事件")?.finished,later);
+  const event=journalRows(s,day).find(r=>r.kind==="事件")!;
+  assert.equal(event.finished,undefined);
+  assert.equal(journalCsvLines(day,[event])[0],'"2026-11-27","事件","组会","","2026-11-27","17:00–18:00","","","日志"');
   assert.equal(journalRows(s,"2026-12-04").find(r=>r.kind==="事件")?.finished,undefined);
   assert.equal(journalRows({...s,events:[]},day).find(r=>r.kind==="事件")?.title,"组会");
 });

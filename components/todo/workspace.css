@@ -86,7 +86,6 @@
 .td-week{text-align:center;padding:7px;font-size:12px;color:var(--td-sub)}
 .td-calendar-head .td-event-add{width:auto;padding:0 6px;font-size:13px}
 .td-calendar-head>div{display:flex;align-items:center}
-.td-event-row.td-event-check{grid-template-columns:32px minmax(0,1fr) auto}
 .td-event-row{grid-template-columns:minmax(0,1fr) auto;background:color-mix(in srgb,var(--td-mark) 12%,var(--td-paper));padding-inline:8px}
 .td-weekdays{display:flex;gap:3px;flex-wrap:wrap;margin:6px 0}
 .td-weekdays button{padding:6px;border:1px solid var(--td-line);border-radius:5px}

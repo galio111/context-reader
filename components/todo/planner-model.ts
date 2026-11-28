@@ -101,14 +101,13 @@ export function eventsOnDay(events: CalendarEvent[], day: string) {
 }
 type UpcomingItem = {at:number; entry:Entry} | {at:number; event:CalendarEvent};
 
-export function upcomingAgenda(events:CalendarEvent[],taskGroups:{rows:Entry[]}[],now:number,checkedEvents?:ReadonlySet<string>) {
+export function upcomingAgenda(events:CalendarEvent[],taskGroups:{rows:Entry[]}[],now:number) {
   const today=isoDay(now), tomorrow=plusDays(today,1), limit=now+dayMs;
   const entries=taskGroups.flatMap(group=>group.rows);
   return [today,tomorrow].map(day=>{
     const items:UpcomingItem[]=entries.filter(entry=>entry.occ===day)
       .map(entry=>({at:dueTime(day,entry.task.time),entry}));
     for(const event of eventsOnDay(events,day)) {
-      if(checkedEvents?.has(day+"@"+event.id))continue;
       // A week with no fixed date is one continuous event.
       if(event.frequency==="week" && day===tomorrow && event.startDate<day)continue;
       const start=dueTime(day,event.startTime || "00:00");

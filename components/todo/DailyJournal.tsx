@@ -38,9 +38,9 @@ export function JournalExport({state,today}:{state:TodoData;today:string}) {
     {message && <p role="alert">{message}</p>}</form></details>;
 }
 
-export function DailyJournal({state,day,today,complete,restore,checkEvent}:{
+export function DailyJournal({state,day,today,complete,restore}:{
   state:TodoData;day:string;today:string;complete:(entry:Entry,day:string)=>Promise<void>;
-  restore:(key:string)=>Promise<void>;checkEvent:(id:string,title:string,day:string,done:boolean)=>Promise<void>;
+  restore:(key:string)=>Promise<void>;
 }) {
   const [loaded,setLoaded]=useState<{day:string;plan?:JournalPlan;error?:string}>(),[attempt,retry]=useState(0);
   useEffect(()=>{
@@ -58,8 +58,11 @@ export function DailyJournal({state,day,today,complete,restore,checkEvent}:{
   const festival=traditionalFestival(day);
   return <>{day!==today && loaded?.plan?.day==="0001-01-01" && <p className="td-caption">此日早于日志启用时间，内容由留存记录还原。</p>}{festival && <p className="td-caption">{festival}</p>}
     {groups.map(group=><section className="td-group" key={group}><h2>{group}</h2>{rows.filter(r=>r.group===group).map(r=>{
+      if(r.kind==="事件")return <div className="td-row td-review-row" key={r.key}><div>
+        <strong>{r.title}</strong>{r.when && <small>{r.when}</small>}
+      </div></div>;
       const done=r.finished!==undefined;
-      const action=()=>r.eventId?checkEvent(r.eventId,r.title,day,!done):r.historyKey?restore(r.historyKey):complete(r.entry!,day);
+      const action=()=>r.historyKey?restore(r.historyKey):complete(r.entry!,day);
       return <div className={"td-row"+(done?" td-checked":"")} key={r.key}>
         <button type="button" className="td-tick" role="checkbox" aria-checked={done}
           aria-label={(done?"撤销完成":"完成")+"「"+r.title+"」"} onClick={()=>void action()}>
