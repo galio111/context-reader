@@ -1,0 +1,49 @@
+{
+  "release": "20261128T201059",
+  "parent": "20261128T122942",
+  "source": "fce0d75cb66aa47279e5934cc847a930f4bd975d",
+  "site": "https://context-reader.com/todo",
+  "local": {
+    "productionBuild": true,
+    "plannerAndProviderTests": 30,
+    "critical": 90,
+    "architecture": 178,
+    "contracts": true,
+    "tested": [
+      "backdating persists across reload",
+      "dated receipts and recurring events",
+      "export range, encoding and CSV escaping",
+      "archived plans, bootstrapped records",
+      "mobile and desktop festival layout"
+    ]
+  },
+  "production": {
+    "public": {
+      "journal": 401,
+      "release": "20261128T201059",
+      "parent": "20261128T122942",
+      "page": 200,
+      "login": true,
+      "privateForm": 0,
+      "cache": "private, no-store",
+      "api": 401,
+      "head": 401,
+      "parse": 401,
+      "cron": 401,
+      "ownerDataCache": "private, no-store",
+      "capture": 200,
+      "home": 200,
+      "account": 200,
+      "browserErrors": []
+    },
+    "liveJournalExport": true,
+    "accountSession": true,
+    "ordinaryAccountTodoDenied": true,
+    "persistentServices": 5,
+    "health": true,
+    "rollbackImages": true,
+    "ownerDataEditedByVerification": false,
+    "journalPrivate": true,
+    "archiveSeedVerified": true
+  }
+}

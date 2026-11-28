@@ -2,6 +2,10 @@
 
 ## Current production release
 
+Accepted 20261128T201059, parent 20261128T122942, source fce0d75cb66aa47279e5934cc847a930f4bd975d. Private journals use versioned daily plans, dated completion corrections, and CSV export. [Evidence](evidence/todo-journal-20261128.json)
+
+## Previous past-day release
+
 Accepted 20261128T122942, parent 20261125T215658, source 1f2c4c7333207671117495042b3955af38e626dd. The Today heading supports historical date navigation. [Evidence](evidence/todo-day-review-20261128.json)
 
 ## Previous rolling agenda release
