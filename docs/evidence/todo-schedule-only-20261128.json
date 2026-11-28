@@ -1,0 +1,47 @@
+{
+  "release": "20261128T204357",
+  "parent": "20261128T201059",
+  "source": "3ea197ef930449f201bc9a453aebe98db0075d6b",
+  "site": "https://context-reader.com/todo",
+  "local": {
+    "productionBuild": true,
+    "plannerAndProviderTests": 30,
+    "critical": 90,
+    "architecture": 178,
+    "contracts": true,
+    "tested": [
+      "event row without completion control in today, upcoming, day and journal",
+      "legacy event receipt does not hide month occurrences",
+      "backdating a task and restoring its state on reload",
+      "CSV event status and timestamp empty"
+    ]
+  },
+  "production": {
+    "public": {
+      "journal": 401,
+      "release": "20261128T204357",
+      "parent": "20261128T201059",
+      "page": 200,
+      "login": true,
+      "privateForm": 0,
+      "cache": "private, no-store",
+      "api": 401,
+      "head": 401,
+      "parse": 401,
+      "cron": 401,
+      "ownerDataCache": "private, no-store",
+      "capture": 200,
+      "home": 200,
+      "account": 200,
+      "browserErrors": []
+    },
+    "liveJournalExport": true,
+    "accountSession": true,
+    "ordinaryAccountTodoDenied": true,
+    "persistentServices": 5,
+    "health": true,
+    "rollbackImages": true,
+    "ownerDataEditedByVerification": false,
+    "journalPrivate": true
+  }
+}

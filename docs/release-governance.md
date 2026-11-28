@@ -2,6 +2,10 @@
 
 ## Current production release
 
+Accepted 20261128T204357, parent 20261128T201059, source 3ea197ef930449f201bc9a453aebe98db0075d6b. Calendar events appear as ordinary schedule entries throughout the planner. [Evidence](evidence/todo-schedule-only-20261128.json)
+
+## Previous journal release
+
 Accepted 20261128T201059, parent 20261128T122942, source fce0d75cb66aa47279e5934cc847a930f4bd975d. Private journals use versioned daily plans, dated completion corrections, and CSV export. [Evidence](evidence/todo-journal-20261128.json)
 
 ## Previous past-day release
