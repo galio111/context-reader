@@ -4,8 +4,9 @@ import Link from "next/link";
 import {calendarDays,defaultUrgentColor,urgencyLabel,updateCategories,dateLabel,relativeDayLabel,upcomingAgenda,calendarItems,firstEventDate,eventsOnDay,eventTime,eventRepeatLabel,plusDays,isoDay,learnedCategory,nextMonth,occurrenceKey,priorityLabels,taskGroups,timing,type Completed,type Entry,type Settings,type Task,type View} from "./planner-model";
 import {SortableTasks} from "./SortableTasks";
 import {reorderCategory,type TaskMove} from "./planner-model";
-import {isSpringFestival} from "./lunar-calendar";
-import {TodayHeading,PastDay} from "./TodayReview";
+import {traditionalFestival} from "./lunar-calendar";
+import {TodayHeading} from "./TodayReview";
+import {DailyJournal,JournalExport} from "./DailyJournal";
 import {CalendarEventEditor} from "./CalendarEventEditor";
 import type {CalendarEvent} from "@/lib/privateTodoState";
 import {InlineEditor,SettingsEditor} from "./TodoEditors";
@@ -32,7 +33,7 @@ function captureScript(src:string) {
   }
   return result;
 }
-const nav: [View,string][]=[["today","今天"],["upcoming","未来 24 小时"],["all","全部待办"],["history","完成历史"]];
+const nav: [View,string][]=[["today","今天"],["upcoming","未来 24 小时"],["all","全部待办"],["history","完成历史"],["journal","每日日志"]];
 const labels = Object.fromEntries(nav);
 const clock = new Intl.DateTimeFormat("zh-CN",{hour:"2-digit",minute:"2-digit",hourCycle:"h23",timeZone:"Asia/Shanghai"});
 type Notice={text:string; undo?:string};
@@ -55,6 +56,7 @@ export default function PrivateTodoWorkspace() {
   const [now,setNow]=useState(Date.now);
   const today=isoDay(now);
   const [view,setView]=useState<View>("today"),[selected,setSelected]=useState(today),[month,setMonth]=useState(today.slice(0,7));
+  const [journalDate,setJournalDate]=useState("");
   const [reviewDate,setReviewDate]=useState("");
   const reviewing=view==="today" && !!reviewDate && reviewDate<today;
   const [chosenCategory,setCategoryFilter]=useState("");
@@ -100,19 +102,20 @@ export default function PrivateTodoWorkspace() {
   },[ready,current,mutate]);
   const displayState=useMemo(()=>state && (settling.length?{...state,history:state.history.filter(h=>!settling.includes(h.key))}:state),[state,settling]);
   const groups=useMemo(()=>{
-    if(!displayState)return [];
+    if(!displayState || view==="journal")return [];
     const grouped=taskGroups(displayState,view,today,selected,now);
     return view==="all" && categoryFilter ? grouped.filter(group=>group.category===categoryFilter) : grouped;
   },[displayState,view,today,selected,now,categoryFilter]);
   const history=useMemo(()=>[...(displayState?.history||[])].sort((a,b)=>b.finished-a.finished),[displayState]);
-  const historyDates=useMemo(()=>{const days=new Map<string,Completed[]>();for(const h of history){const d=h.importedWithoutCompletionDate?"完成日期未记录":isoDay(h.finished);if(!days.has(d))days.set(d,[]);days.get(d)!.push(h)}return days},[history]);
+  const historyDates=useMemo(()=>{const days=new Map<string,Completed[]>();for(const h of history){const d=h.importedWithoutCompletionDate?"完成日期未记录":h.creditedDay || isoDay(h.finished);if(!days.has(d))days.set(d,[]);days.get(d)!.push(h)}return days},[history]);
   const doneKeys=useMemo(()=>new Set(history.map(h=>h.key)),[history]);
   const undated=state?.tasks.filter(t=>!t.daily&&!t.date&&!doneKeys.has(occurrenceKey(t,""))).length||0;
   const cells=useMemo(()=>calendarDays(month),[month]);
-  const contents=useMemo(()=>new Map(cells.map(day=>[day,calendarItems(state?.tasks||[],state?.events||[],day,doneKeys)])),[state?.tasks,state?.events,cells,doneKeys]);
+  const checkedEvents=useMemo(()=>new Set(state?.eventChecks?.map(c=>c.day+"@"+c.eventId)),[state?.eventChecks]);
+  const contents=useMemo(()=>new Map(cells.map(day=>[day,calendarItems(state?.tasks||[],state?.events||[],day,doneKeys).filter(item=>!item.event || !checkedEvents.has(day+"@"+item.event.id))])),[state?.tasks,state?.events,cells,doneKeys,checkedEvents]);
   const previewDay=contents.has(hoverDay) ? hoverDay : selected.startsWith(month) ? selected : "";
   const monthHasHigh=[...contents.values()].some(rows=>rows.some(item=>item.high));
-  const upcoming=view==="upcoming" ? upcomingAgenda(state?.events||[],groups,now) : [];
+  const upcoming=view==="upcoming" ? upcomingAgenda(state?.events||[],groups,now,checkedEvents) : [];
   const shownDay=view==="day" ? selected : today;
   const shownEvents=view==="day" || view==="today" ? eventsOnDay(state?.events||[],shownDay) : [];
   const tomorrow=plusDays(today,1);
@@ -142,25 +145,42 @@ export default function PrivateTodoWorkspace() {
     try{await mutate(s=>({...s,history:s.history.filter(h=>h.key!==key)}));setNotice({text:"已恢复到待办清单"})}
     catch(e){setNotice({text:(e as Error).message})}
   },[mutate]);
-  async function complete(entry:Entry) {
+  async function complete(entry:Entry,forDay=isoDay()) {
     const {task,occ}=entry, key=occurrenceKey(task,occ);
     if(busy.current.has(key))return;
     busy.current.add(key);setSettling(old=>[...old,key]);
     const finished=Date.now();
-    const record:Completed={key,taskId:task.id,occ:occ||isoDay(finished),title:task.title,category:task.category,daily:task.daily,finished};
+    const backdated=forDay<isoDay(finished);
+    let reassigned=false;
+    const record:Completed={...(backdated?{creditedDay:forDay}:{}),key,taskId:task.id,occ:occ||isoDay(finished),title:task.title,category:task.category,daily:task.daily,finished};
     try {
       await Promise.all([mutate(s=>{
-        if(s.history.some(h=>h.key===key))return s;
+        const prior=s.history.find(h=>h.key===key);
+        if(prior){
+          if(!backdated || prior.importedWithoutCompletionDate || (prior.creditedDay||isoDay(prior.finished))<=forDay)return s;
+          reassigned=true;
+          return {...s,history:s.history.map(h=>h.key===key?{...h,creditedDay:forDay}:h)};
+        }
         const authoritative=s.tasks.find(t=>t.id===task.id);
-        if(!authoritative || authoritative.daily!==task.daily)throw Error("这项待办已在其他设备更新，请重新确认。");
-        return {...s,history:[{...record,title:authoritative.title,category:authoritative.category},...s.history]};
+        if((!authoritative && !backdated) || (authoritative && authoritative.daily!==task.daily))throw Error("这项待办已在其他设备更新，请重新确认。");
+        return {...s,history:[{...record,title:backdated?task.title:authoritative!.title,category:backdated?task.category:authoritative!.category},...s.history]};
       }),new Promise(resolve=>setTimeout(resolve,matchMedia("(prefers-reduced-motion: reduce)").matches?0:420))]);
-      setNotice({text:"已完成「"+task.title+"」",undo:key});
+      setNotice({text:backdated?"已记入 "+forDay+" 的完成记录":"已完成「"+task.title+"」",undo:reassigned?undefined:key});
     }catch(e){setNotice({text:(e as Error).message})}
     finally{busy.current.delete(key);setSettling(old=>old.filter(k=>k!==key))}
   }
+  async function checkEvent(eventId:string,title:string,day:string,done:boolean) {
+    const finished=Date.now();
+    try {
+      await mutate(s=>{
+        const checks=s.eventChecks||[],saved=checks.find(c=>c.eventId===eventId && c.day===day);
+        if(!!saved===done)return s;
+        return {...s,eventChecks:done?[...checks,{eventId,title,day,finished}]:checks.filter(c=>c!==saved)};
+      });
+    }catch(e){setNotice({text:(e as Error).message})}
+  }
   const renderHistory=(records:Completed[])=>records.map(h=><div className="td-row td-past" key={h.key}>
-    <span className="td-history-check" aria-hidden>✓</span><div><strong>{h.title}</strong><small>{[h.category,h.importedWithoutCompletionDate?"从备忘录导入":clock.format(h.finished)+" 勾选",h.daily?dateLabel(h.occ)+"的每日任务":""].filter(Boolean).join(" · ")}</small></div>
+    <span className="td-history-check" aria-hidden>✓</span><div><strong>{h.title}</strong><small>{[h.category,h.importedWithoutCompletionDate?"从备忘录导入":(h.creditedDay && h.creditedDay!==isoDay(h.finished)?isoDay(h.finished)+" 补勾 ":"")+clock.format(h.finished)+" 勾选",h.daily?dateLabel(h.occ)+"的每日任务":""].filter(Boolean).join(" · ")}</small></div>
     <button className="td-link" onClick={()=>void restore(h.key)}>恢复</button></div>);
   async function saveOrder(category:string,move:TaskMove|null) {
     try{await mutate(s=>reorderCategory(s,category,move));setNotice({text:move?"顺序已保存":"已恢复按截止时间排序"})}
@@ -185,7 +205,9 @@ export default function PrivateTodoWorkspace() {
       <button className="td-link" aria-label={"编辑「"+task.title+"」"} onClick={()=>setEditing({key:editKey,original:task})}>编辑</button></div>;
   }
   function renderEvent(event:CalendarEvent,day:string){
-    return <div key={"event:"+event.id} className="td-row td-event-row" style={{"--td-mark":event.color} as CSSProperties}>
+    const editableDay=day<=today,done=checkedEvents.has(day+"@"+event.id);
+    return <div key={"event:"+event.id} className={"td-row td-event-row"+(editableDay?" td-event-check":"")+(done?" td-checked":"")} style={{"--td-mark":event.color} as CSSProperties}>
+      {editableDay && <button className="td-tick" role="checkbox" aria-checked={done} aria-label={(done?"撤销完成":"完成")+"「"+event.title+"」"} onClick={()=>void checkEvent(event.id,event.title,day,!done)}><svg viewBox="0 0 20 20" aria-hidden><path d="M4 10l4 4 8-9"/></svg></button>}
       <div><strong>{event.title}</strong><small>{eventTime(event)} · {eventRepeatLabel(event)}</small></div>
       <button className="td-link" aria-label={"编辑日历事件「"+event.title+"」"} onClick={()=>setEventEditor({day,original:event})}>编辑</button></div>;
   }
@@ -207,16 +229,19 @@ export default function PrivateTodoWorkspace() {
           }}>记事件</button>
           <div id="record-status" role="status"/>{captureIssue && <p role="alert">{captureIssue}</p>}
         </form>
-        <nav aria-label="清单范围">{nav.map(([value,title])=><button key={value} aria-current={view===value?"page":undefined} onClick={()=>{if(value==="today")selectReviewDay(today);else {setView(value);setEditing(null)}}}>{title}</button>)}</nav>
+        <nav aria-label="清单范围">{nav.map(([value,title])=><button key={value} aria-current={view===value?"page":undefined} onClick={()=>{if(value==="today")selectReviewDay(today);else {if(value==="journal")setJournalDate("");setView(value);setEditing(null)}}}>{title}</button>)}</nav>
         <button className="td-settings" onClick={()=>setSettingsBase(state!.settings)}>待办设置</button>
       </aside>
       <section className="td-agenda" ref={agenda}>
         {view==="today" ? <TodayHeading day={reviewing?reviewDate:today} today={today} select={selectReviewDay}/> :
           <div className="td-heading"><h1>{view==="day"?dateLabel(selected)+"的待办":labels[view]}</h1>{view==="day" && <ScopedAdd openEvent={openEvent} key={selected} date={selected} ready={captureReady}/>}</div>}
-        {reviewing ? <PastDay day={reviewDate} state={state!}/> : <>
+        {(reviewing || view==="journal") ? <>
+          {view==="journal" && <div className="td-journal-tools"><label>日志日期 <input type="date" max={today} value={journalDate||today} onChange={e=>{if(e.target.value && e.target.validity.valid)setJournalDate(e.target.value)}}/></label><JournalExport state={state!} today={today}/></div>}
+          <DailyJournal day={reviewing?reviewDate:journalDate||today} today={today} state={state!} complete={complete} restore={restore} checkEvent={checkEvent}/>
+        </> : <>
         {view==="all" && <label className="td-filter">分类<select value={categoryFilter} onChange={e=>{setCategoryFilter(e.target.value);setEditing(null)}}><option value="">所有分类</option>{state!.categories.map(c=><option key={c}>{c}</option>)}</select></label>}
         {view==="upcoming" && <p className="td-caption">显示这段时间的日程和到期待办，全天待办按当天结束计算。</p>}
-        {(view==="today" || view==="day") && isSpringFestival(shownDay) && <p className="td-caption">春节 · 农历正月初一</p>}
+        {(view==="today" || view==="day") && traditionalFestival(shownDay) && <p className="td-caption">{traditionalFestival(shownDay)}</p>}
         {renderEvents(shownEvents,shownDay,"当日日程")}
         {view==="upcoming" ? upcoming.length ? upcoming.map(({day,items})=>
           <section key={day} className="td-group"><h2>{day===today?"今天":"明天"}</h2>{items.map(item=>
@@ -238,11 +263,10 @@ export default function PrivateTodoWorkspace() {
         <div><button className="td-event-add" aria-label="添加日历事件" onClick={()=>setEventEditor({original:null,day:view==="day"?selected:month===today.slice(0,7)?today:month+"-01"})}>＋ 事件</button><button aria-label="上个月" onClick={()=>{setMonth(nextMonth(month,-1));setHoverDay("")}}>‹</button><button onClick={()=>selectReviewDay(today)}>今</button><button aria-label="下个月" onClick={()=>{setMonth(nextMonth(month,1));setHoverDay("")}}>›</button></div></div>
         <div className="td-month">{[..."一二三四五六日"].map(d=><span className="td-week" key={d}>{d}</span>)}{cells.map(d=>{
           const rows=contents.get(d)||[];
-          const festival=isSpringFestival(d);
+          const festival=traditionalFestival(d);
           const highCount=rows.filter(item=>item.high).length;
-          return <button key={d} className={"td-cell "+(d===today?"td-cell-today ":"")+(d===selected&&(view==="day" || reviewing)?"td-selected ":"")+(d.slice(0,7)!==month?"td-other ":"")} onClick={()=>jump(d)} onFocus={()=>setHoverDay(d)} onMouseEnter={()=>setHoverDay(d)} aria-label={dateLabel(d,today)+(festival?"，春节，农历正月初一":"")+"，"+rows.length+"项安排"+(highCount?"，其中"+highCount+"项高优先级":"")}>
-            <span className="td-cell-date"><b>{Number(d.slice(-2))}</b>{relativeDayLabel(d,today) && <small className="td-relative-day">{relativeDayLabel(d,today)}</small>}</span>
-            {festival && <small className="td-holiday">春节</small>}
+          return <button key={d} className={"td-cell "+(d===today?"td-cell-today ":"")+(d===selected&&(view==="day" || reviewing)?"td-selected ":"")+(d.slice(0,7)!==month?"td-other ":"")} onClick={()=>jump(d)} onFocus={()=>setHoverDay(d)} onMouseEnter={()=>setHoverDay(d)} aria-label={dateLabel(d,today)+(festival?"，"+festival:"")+"，"+rows.length+"项安排"+(highCount?"，其中"+highCount+"项高优先级":"")}>
+            <span className="td-cell-date"><b>{Number(d.slice(-2))}</b>{(festival || relativeDayLabel(d,today)) && <span className="td-date-labels">{festival && <small className="td-holiday">{festival}</small>}{relativeDayLabel(d,today) && <small className="td-relative-day">{relativeDayLabel(d,today)}</small>}</span>}</span>
             {rows.map(item=>{
               const mark=item.event?.color || item.task?.color || (item.task && urgencyLabel(item.task,today,now) ? "var(--td-urgent)" : undefined);
               return <span key={item.key} style={mark ? {"--td-mark":mark} as CSSProperties : undefined} data-marked={mark ? true : undefined} className={"td-cell-item"+(item.high?" td-priority-high":"")} title={item.timeLabel+" · "+item.title}>
@@ -252,7 +276,7 @@ export default function PrivateTodoWorkspace() {
             })}</button>;
         })}</div>
         {monthHasHigh && <p className="td-legend"><span className="td-priority-high">高优先级</span></p>}
-        {previewDay && <div className="td-day-preview"><b>{dateLabel(previewDay,today)}{isSpringFestival(previewDay) && " · 春节（正月初一）"}</b>{(contents.get(previewDay)||[]).map(item=>
+        {previewDay && <div className="td-day-preview"><b>{dateLabel(previewDay,today)}{traditionalFestival(previewDay) && " · "+traditionalFestival(previewDay)}</b>{(contents.get(previewDay)||[]).map(item=>
           <p key={item.key}>{item.high&&<span className="td-priority-high">高优先级</span>}{item.timeLabel}　{item.title}</p>)}{!contents.get(previewDay)?.length&&<p>这天暂时空着。</p>}</div>}
       </section>
       <button className="td-mobile-add" onClick={()=>{input.current?.scrollIntoView({block:"center"});input.current?.focus()}}>＋ 随手记</button>

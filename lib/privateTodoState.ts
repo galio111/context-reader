@@ -27,6 +27,7 @@ export type TodoCompletion = {
   title: string;
   category: string;
   finished: number;
+  creditedDay?: string;
   importedWithoutCompletionDate?: true;
 };
 
@@ -36,6 +37,7 @@ export type PrivateTodoState = {
   tasks: TodoTask[];
   events?: CalendarEvent[];
   history: TodoCompletion[];
+  eventChecks?: {eventId:string; day:string; title:string; finished:number}[];
   settings: {
     learnDefaults: boolean;
     defaultMissed: "skip" | "carry";
@@ -94,6 +96,7 @@ function completion(value: unknown): value is TodoCompletion {
   return typeof value.daily === "boolean"
     && value.key === value.taskId + "@" + (value.daily ? value.occ : "once")
     && text(value.title, 4096) && text(value.category, 64, true)
+    && (value.creditedDay===undefined || date(value.creditedDay))
     && (value.importedWithoutCompletionDate === undefined || value.importedWithoutCompletionDate === true)
     && integer(value.finished, 0, 8640000000000000);
 }
@@ -104,6 +107,10 @@ export function isPrivateTodoState(value: unknown): value is PrivateTodoState {
     || !Array.isArray(value.tasks) || !value.tasks.every(task) || !unique(value.tasks.map(t => t.id))
     || (value.events !== undefined && (!Array.isArray(value.events) || !value.events.every(isCalendarEvent) || !unique(value.events.map(event=>event.id))))
     || !Array.isArray(value.history) || !value.history.every(completion) || !unique(value.history.map(h => h.key))) return false;
+  const checks=value.eventChecks;
+  if(checks!==undefined && (!Array.isArray(checks) || !checks.every(c=>object(c) && text(c.eventId,160) &&
+    date(c.day) && text(c.title,300) && integer(c.finished,0,8640000000000000)) ||
+    !unique(checks.map(c=>JSON.stringify([c.eventId,c.day])))))return false;
   const s = value.settings;
   if (!object(s) || typeof s.learnDefaults !== "boolean" || !missed(s.defaultMissed) || typeof s.emailEnabled !== "boolean"
     || !text(s.emailAddress, 254, true) || !integer(s.remindMinutes, 0, 525600) || !optionalColor(s.urgentColor) || !time(s.allDayTime)) return false;

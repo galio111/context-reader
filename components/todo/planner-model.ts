@@ -5,7 +5,7 @@ export type TodoData=PrivateTodoState;
 export type Settings=TodoData["settings"];
 export type Snapshot=PrivateTodoSnapshot;
 export interface Entry {task: Task; occ: string}
-export type View = "today" | "upcoming" | "all" | "day" | "history";
+export type View = "today" | "upcoming" | "all" | "day" | "history" | "journal";
 import {lunarMonths,lunarDays,nextLunarOccurrence} from "./lunar-calendar";
 const dayMs = 86400000;
 export const isoDay = (now = Date.now()) => new Date(now + 8 * 3600000).toISOString().slice(0, 10);
@@ -101,13 +101,14 @@ export function eventsOnDay(events: CalendarEvent[], day: string) {
 }
 type UpcomingItem = {at:number; entry:Entry} | {at:number; event:CalendarEvent};
 
-export function upcomingAgenda(events:CalendarEvent[],taskGroups:{rows:Entry[]}[],now:number) {
+export function upcomingAgenda(events:CalendarEvent[],taskGroups:{rows:Entry[]}[],now:number,checkedEvents?:ReadonlySet<string>) {
   const today=isoDay(now), tomorrow=plusDays(today,1), limit=now+dayMs;
   const entries=taskGroups.flatMap(group=>group.rows);
   return [today,tomorrow].map(day=>{
     const items:UpcomingItem[]=entries.filter(entry=>entry.occ===day)
       .map(entry=>({at:dueTime(day,entry.task.time),entry}));
     for(const event of eventsOnDay(events,day)) {
+      if(checkedEvents?.has(day+"@"+event.id))continue;
       // A week with no fixed date is one continuous event.
       if(event.frequency==="week" && day===tomorrow && event.startDate<day)continue;
       const start=dueTime(day,event.startTime || "00:00");
@@ -210,12 +211,12 @@ export function taskGroups(state: TodoData, view: View, today: string, selected:
   return groups;
 }
 export function dayReview(state:TodoData,day:string) {
-  const dayStart=dueTime(day,"00:00"), dayEnd=dayStart+dayMs;
-  const history=state.history.filter(h=>h.importedWithoutCompletionDate || h.finished<dayEnd);
+  const dayStart=dueTime(day,"00:00");
+  const history=state.history.filter(h=>h.importedWithoutCompletionDate || (h.creditedDay || isoDay(h.finished))<=day);
   const tasks=state.tasks.filter(task=>task.created<=day);
   const groups=taskGroups({...state,tasks,history},"today",day,day,dayStart)
     .filter(group=>group.title!=="明日待办");
-  const completed=history.filter(h=>!h.importedWithoutCompletionDate && h.finished>=dayStart)
+  const completed=history.filter(h=>!h.importedWithoutCompletionDate && (h.creditedDay || isoDay(h.finished))===day)
     .sort((a,b)=>b.finished-a.finished);
   return {groups,completed,events:eventsOnDay(state.events||[],day)};
 }

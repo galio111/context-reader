@@ -230,3 +230,17 @@ export function nextLunarOccurrence(start:string,end:string,month:number,day:num
   }
   return "";
 }
+
+const festivalDates=new Map<string,string>();
+for (const year of yearData) {
+  const lunarYear=Number(year.newYear.slice(0,4));
+  const eve=new Date(Date.parse(year.newYear+"T12:00:00Z")-86400000).toISOString().slice(0,10);
+  festivalDates.set(eve,"除夕");
+  for (const [month,day,name] of [[1,1,"春节"],[1,15,"元宵"],[5,5,"端午"],[7,7,"七夕"],
+    [8,15,"中秋"],[9,9,"重阳"],[12,8,"腊八"]] as const) {
+    festivalDates.set(lunarOccurrence(lunarYear,month,day),name);
+  }
+}
+export function traditionalFestival(day:string) {
+  return festivalDates.get(day) || "";
+}
