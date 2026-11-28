@@ -2,6 +2,10 @@
 
 ## Current production release
 
+Accepted 20261128T122942, parent 20261125T215658, source 1f2c4c7333207671117495042b3955af38e626dd. The Today heading supports historical date navigation. [Evidence](evidence/todo-day-review-20261128.json)
+
+## Previous rolling agenda release
+
 Accepted 20261125T215658, parent 20261125T200910, source 079344679585945a8c369640d2b151755751d8fa. The rolling 24-hour agenda includes calendar occurrences and due tasks in time order. [Evidence](evidence/todo-upcoming-events-20261125.json)
 
 ## Previous category label release
